@@ -13,15 +13,16 @@
       { "name": "About", "url": "#about", "number": "01" },
       { "name": "Experience", "url": "#experience", "number": "02" },
       { "name": "Projects", "url": "#projects", "number": "03" },
-      { "name": "Skills", "url": "#skills", "number": "04" },
-      { "name": "Education", "url": "#education", "number": "05" },
-      { "name": "Contact", "url": "#contact", "number": "06" }
+      { "name": "Testimonials", "url": "#testimonials", "number": "04" },
+      { "name": "Skills", "url": "#skills", "number": "05" },
+      { "name": "Education", "url": "#education", "number": "06" },
+      { "name": "Contact", "url": "#contact", "number": "07" }
     ],
     "social": [
-      { "name": "LinkedIn", "url": "#", "icon": "fab fa-linkedin-in" },
-      { "name": "GitHub", "url": "#", "icon": "fab fa-github" },
+      { "name": "LinkedIn", "url": "https://www.linkedin.com/in/lucasgros", "icon": "fab fa-linkedin-in" },
+      { "name": "GitHub", "url": "https://github.com/loukach", "icon": "fab fa-github" },
       { "name": "Twitter", "url": "#", "icon": "fab fa-twitter" },
-      { "name": "Email", "url": "#", "icon": "fas fa-envelope" }
+      { "name": "Email", "url": "lucas.gros@gmail.com", "icon": "fas fa-envelope" }
     ]
   },
   "hero": {
@@ -186,9 +187,46 @@
       }
     ]
   },
+  "testimonials": {
+    "title": "What People Say",
+    "number": "04",
+    "items": [
+      {
+        "content": "Having Lucas on the team has not only enabled us to deliver features but also to generate substantial value and revenue for SSK. His advocacy for value generation has been instrumental in our success.",
+        "author": {
+          "name": "Barbara Garbacz",
+          "title": "Head of Product at MotorK",
+          "image": {
+            "initials": "BG"
+          }
+        }
+      },
+      {
+        "content": "Lucas stands out for his operational excellence. He's dedicated to quickly and efficiently solving problems with smart solutions. His knack for critical thinking, adept questioning, and relentless pursuit of the best outcomes make him a standout among his colleagues.",
+        "author": {
+          "name": "Barbara Garbacz",
+          "title": "Chief Product Officer at MotorK",
+          "image": {
+            "initials": "BG"
+          }
+        }
+      },
+      {
+        "content": "Lucas came and out of the bat tried to make a difference in a subtle way. He is commended for his knowledge of product practices, cleverness, curiosity, and keen thinking process. He is able to challenge, push and promote without being seen as 'pushy'.",
+        "author": {
+          "name": "Miguel Boto",
+          "title": "Manager at MotorK",
+          "image": {
+            "initials": "MB"
+          }
+        }
+      }
+    ]
+  },
+  
   "skills": {
     "title": "My Toolkit",
-    "number": "04",
+    "number": "05",
     "categories": [
       {
         "name": "Product Management",
@@ -223,7 +261,7 @@
   },
   "education": {
     "title": "Education",
-    "number": "05",
+    "number": "06",
     "schools": [
       {
         "name": "Ecole nationale supérieure des Télécommunications",
@@ -241,15 +279,16 @@
   },
   "contact": {
     "title": "What's Next?",
-    "number": "06",
+    "number": "07",
     "paragraphs": [
-      "I'm currently exploring Senior Product Manager opportunities with innovative startups and scaleups (under 500 employees) across Europe. I'm particularly interested in organizations creating products with tangible outcomes and positive impact.",
-      "If your company is navigating challenging product waters and needs someone who can bridge technical capabilities with business outcomes, let's talk."
+      "I'm currently exploring how AI is transforming how we can ideate & build experiments at an unprecendented speed, but also how to automate operational flows.",
+      "I'm particularly interested in organizations and people creating products with tangible outcomes and positive impact.",
+      "If you are navigating challenging product waters and want to talk, ping me."
     ],
     "ctaText": "Say Hello",
     "email": {
-      "user": "your-email",
-      "domain": "example.com"
+      "user": "lucas.gros",
+      "domain": "gmail.com"
     }
   },
   "footer": {
@@ -259,9 +298,9 @@
       "url": "https://brittanychiang.com/"
     },
     "toolCredit": {
-      "text": "Built with",
-      "name": "Claude Code",
-      "url": "https://claude.ai/code"
+      "text": "Built in collaboration with",
+      "name": "Claude AI",
+      "url": "https://claude.ai"
     },
     "copyright": "© 2025 Lucas Gros. All Rights Reserved"
   }

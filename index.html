@@ -37,19 +37,47 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Fixed Side Navigation -->
-        <nav class="sidebar">
-            <div class="logo">
-                <a href="#">LG</a>
+    <!-- Reading Mode Toggle -->
+    <button class="reading-mode-toggle" aria-label="Toggle reading mode">
+        <i class="fas fa-sun"></i>
+    </button>
+    
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Split Screen Layout -->
+    <div class="split-layout">
+        <!-- Left Panel (Fixed) -->
+        <div class="left-panel">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="logo">
+                    <a href="#">LG</a>
+                </div>
+                
+                <div class="profile-intro">
+                    <p class="intro"></p>
+                    <h1 class="title"></h1>
+                    <h2 class="subtitle"></h2>
+                    <p class="description"></p>
+                    <a href="#about" class="cta-button"></a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <nav class="navigation">
+                    <ul class="nav-links">
+                        <!-- Navigation links will be populated from content.json -->
+                    </ul>
+                </nav>
+                
+                <!-- Social Links -->
+                <div class="social-links">
+                    <!-- Social links will be populated from content.json -->
+                </div>
             </div>
-            <ul class="nav-links">
-                <!-- Navigation links will be populated from content.json -->
-            </ul>
-            <div class="social-links">
-                <!-- Social links will be populated from content.json -->
-            </div>
-        </nav>
+        </div>
 
         <!-- Mobile Navigation Toggle -->
         <button class="nav-toggle" aria-label="Toggle navigation">
@@ -58,97 +86,112 @@
             <span></span>
         </button>
 
-        <!-- Main Content Area -->
-        <main class="content">
-            <!-- Hero Section -->
-            <section class="hero">
-                <p class="intro"></p>
-                <h1 class="title"></h1>
-                <h2 class="subtitle"></h2>
-                <p class="description"></p>
-                <a href="#about" class="cta-button"></a>
-            </section>
-
-            <!-- About Section -->
-            <section id="about" class="section">
-                <h2 class="section-title"></h2>
-                <div class="section-content about-grid">
-                    <div class="about-text">
-                        <!-- About content will be populated from content.json -->
-                    </div>
-                    <div class="about-image">
-                        <div class="wrapper">
-                            <!-- Placeholder for profile image -->
-                            <div class="profile-img-placeholder">
-                                <span class="initials">LG</span>
+        <!-- Right Panel (Scrollable Content) -->
+        <div class="right-panel">
+            <!-- Main Content Area -->
+            <main class="content">
+                <!-- About Section -->
+                <section id="about" class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="section-content about-grid">
+                        <div class="about-text">
+                            <!-- About content will be populated from content.json -->
+                        </div>
+                        <div class="about-image">
+                            <div class="wrapper">
+                                <!-- Placeholder for profile image -->
+                                <div class="profile-img-placeholder">
+                                    <span class="initials">LG</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Experience Section -->
-            <section id="experience" class="section">
-                <h2 class="section-title"></h2>
-                <div class="section-content">
-                    <div class="tabs-container">
-                        <div class="tabs-list">
-                            <!-- Experience tabs will be populated from content.json -->
+                <!-- Experience Section -->
+                <section id="experience" class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="section-content">
+                        <div class="tabs-container">
+                            <div class="tabs-list">
+                                <!-- Experience tabs will be populated from content.json -->
+                            </div>
+                            
+                            <div class="tab-content-container">
+                                <!-- Experience content will be populated from content.json -->
+                            </div>
                         </div>
-                        
-                        <div class="tab-content-container">
-                            <!-- Experience content will be populated from content.json -->
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="section-content">
+                        <div class="projects-grid">
+                            <!-- Project cards will be populated from content.json -->
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Projects Section -->
-            <section id="projects" class="section">
-                <h2 class="section-title"></h2>
-                <div class="section-content">
-                    <div class="projects-grid">
-                        <!-- Project cards will be populated from content.json -->
+                <!-- Testimonials Section -->
+                <section id="testimonials" class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="section-content">
+                        <div class="testimonials-slider">
+                            <!-- Testimonials will be populated from content.json -->
+                        </div>
+                        <div class="testimonials-navigation">
+                            <button class="prev-testimonial" aria-label="Previous testimonial">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="testimonials-indicators">
+                                <!-- Indicators will be populated based on testimonial count -->
+                            </div>
+                            <button class="next-testimonial" aria-label="Next testimonial">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Skills Section -->
-            <section id="skills" class="section">
-                <h2 class="section-title"></h2>
-                <div class="section-content">
-                    <div class="skills-container">
-                        <!-- Skills categories will be populated from content.json -->
+                <!-- Skills Section -->
+                <section id="skills" class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="section-content">
+                        <div class="skills-container">
+                            <!-- Skills categories will be populated from content.json -->
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Education Section -->
-            <section id="education" class="section">
-                <h2 class="section-title"></h2>
-                <div class="section-content">
-                    <div class="education-list">
-                        <!-- Education items will be populated from content.json -->
+                <!-- Education Section -->
+                <section id="education" class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="section-content">
+                        <div class="education-list">
+                            <!-- Education items will be populated from content.json -->
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Contact Section -->
-            <section id="contact" class="section">
-                <h2 class="section-title"></h2>
-                <div class="section-content contact-content">
-                    <!-- Contact text will be populated from content.json -->
-                    <a href="mailto:your-email@example.com" class="cta-button contact-button">
-                        Say Hello
-                    </a>
-                </div>
-            </section>
+                <!-- Contact Section -->
+                <section id="contact" class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="section-content contact-content">
+                        <!-- Contact text will be populated from content.json -->
+                        <a href="mailto:your-email@example.com" class="cta-button contact-button">
+                            Say Hello
+                        </a>
+                    </div>
+                </section>
 
-            <!-- Footer -->
-            <footer>
-                <!-- Footer content will be populated from content.json -->
-            </footer>
-        </main>
+                <!-- Footer -->
+                <footer>
+                    <!-- Footer content will be populated from content.json -->
+                </footer>
+            </main>
+        </div>
     </div>
     
     <!-- Scroll to top button -->

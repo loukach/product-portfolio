@@ -4,49 +4,85 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static web application that displays a product portfolio/catalog. It uses vanilla JavaScript, HTML, and CSS without any frameworks. The project structure follows a simple organization with separate directories for components, pages, assets, and styles.
+This is a personal portfolio website for a Product Manager, built with a dark theme inspired by Brittany Chiang's portfolio design. It uses vanilla JavaScript, HTML, and CSS without any frameworks (except Font Awesome for icons). The website is a single-page application with smooth scrolling between sections and animated elements.
 
 ## Development Commands
 
 ```bash
-# Install dependencies
+# If using npm:
 npm install
 
-# Start development server
-npm run dev
+# Start a local development server
+npx serve public
 
-# Lint JavaScript files
-npm run lint
-
-# Format code with Prettier
-npm run format
+# View production-ready files
+npx serve deploy
 ```
 
 ## Architecture
 
 - **Frontend Only**: This is a static frontend application without a backend.
-- **Data Management**: Product data is currently stored in a JavaScript array in `src/index.js`.
-- **Component Structure**: The application uses a simple component structure where the main layout is defined in `index.html` and dynamic content is generated via JavaScript.
-- **Styling**: The project uses CSS variables for theming and a responsive grid layout for the product catalog.
+- **Single Page Application**: All content is on a single HTML page with smooth navigation between sections.
+- **CSS Variables**: The project uses CSS variables for consistent theming and easy customization.
+- **Responsive Design**: The layout adapts to various screen sizes with specific breakpoints.
+- **JavaScript Features**:
+  - Tab system for the experience section
+  - IntersectionObserver for scroll animations
+  - Smooth scrolling with custom easing functions
+  - Email obfuscation for spam protection
+  - Mobile navigation toggle
 
 ## File Structure
 
-- `public/index.html`: Entry point that defines the overall page structure
-- `src/index.js`: Main JavaScript file that handles rendering products and user interactions
-- `src/styles/main.css`: Contains all styling for the application
-- `src/assets/`: Contains image files for products
-- `src/components/`: Reserved for reusable UI components (currently empty)
-- `src/pages/`: Reserved for page-specific components (currently empty)
+The project is organized into two main areas:
 
-## Adding New Features
+### Development Files
+- `public/index.html`: Main HTML file with all content sections
+- `public/favicon.svg`: SVG icon for the site
+- `src/index.js`: JavaScript for interaction and animations
+- `src/styles/main.css`: Unminified CSS with comments and organization
 
-When adding new features to this codebase:
+### Production Files (in `deploy/` directory)
+- `index.html`: Optimized HTML
+- `styles.css`: Minified CSS
+- `script.js`: Minified JavaScript
+- `favicon.svg`: Site icon
+- `README.md`: Deployment instructions
 
-1. For new visual components, create appropriate files in the `components/` directory
-2. For new pages, add them to the `pages/` directory
-3. Ensure any new CSS follows the existing pattern in `main.css`
-4. Add new product data to the `products` array in `index.js`
+## Modifying Content
+
+When updating this portfolio:
+
+1. **Personal Information**: Update personal details in `public/index.html`
+2. **Experience**: Modify the tab sections in the experience area
+3. **Projects**: Update the project cards with your own work
+4. **Skills**: Adjust the skills categories and items to match your expertise
+5. **Contact**: Change the email address in `src/index.js` (look for `emailParts` array)
+
+## Styling Guidelines
+
+- Maintain the dark theme with the navy/cyan color scheme
+- Keep CSS variables at the top of the stylesheet for easy customization
+- Follow the existing naming conventions for classes
+- Preserve the responsive breakpoints for consistent mobile experience
+
+## JavaScript Considerations
+
+- The site uses vanilla JavaScript with no dependencies
+- Animation timing is managed through CSS variables
+- Tab functionality is handled via data attributes
+- IntersectionObserver provides efficient scroll-based animations
 
 ## Deployment
 
-This is a static site that can be deployed to any static hosting service like GitHub Pages, Netlify, Vercel, or any web server.
+For deployment updates:
+
+1. Make changes to the development files first
+2. Test thoroughly in the browser
+3. Minify the CSS and JavaScript
+4. Update the files in the `deploy/` directory
+5. The site can be deployed to any static hosting service (GitHub Pages is recommended)
+
+## GitHub Pages Setup
+
+The repository is configured for GitHub Pages from the `main` branch. The live site is available at: [https://loukach.github.io/product-portfolio](https://loukach.github.io/product-portfolio)

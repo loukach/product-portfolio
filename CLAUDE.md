@@ -11,7 +11,7 @@ This is a JSON-powered portfolio website for a Product Manager, built with a dar
 - **JSON Content Management**: All content is loaded dynamically from content.json
 - **Single Page Design**: Smooth scrolling between sections with active navigation
 - **Responsive Layout**: Works on all device sizes with mobile navigation
-- **Interactive Elements**: Tabbed experience section, project cards, skills categories
+- **Interactive Elements**: Foldable experience cards, project cards, skills categories, testimonials slider
 - **Performance Optimized**: Efficient animations using IntersectionObserver
 - **No Build Process**: Ready to deploy with no compilation step
 
@@ -57,10 +57,13 @@ npx serve
 Two main components:
 1. **Core Functionality**:
    - Smooth scrolling
-   - Tab system for experience section
+   - Foldable cards for experience section
+   - Testimonials slider with navigation
    - IntersectionObserver for scroll animations
    - Mobile navigation toggle
    - Scroll-to-top button
+   - Reading mode toggle
+   - Scroll progress indicator
 
 2. **Content Loader**:
    - Fetches content.json asynchronously

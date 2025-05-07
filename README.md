@@ -17,7 +17,7 @@ This is a responsive, single-page portfolio website with a dark theme inspired b
 - JSON-based content management - update without touching HTML
 - Fixed side navigation that highlights the current section
 - Animated hero section with staggered fade-ins
-- Tabbed interface for the experience section
+- Foldable cards for the experience section with expand/collapse functionality
 - Project showcase with alternating layout
 - Skills section organized by categories
 - Education timeline
@@ -89,6 +89,7 @@ Example of updating your job experience:
     "title": "Your Role",
     "url": "https://company-website.com",
     "period": "Month Year - Present",
+    "type": "Optional Type (e.g., Volunteering)",
     "description": [
       "Achievement one with quantifiable results",
       "Achievement two with impact",

@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "title": "Lucas Gros | Product Manager",
+    "description": "Product Manager specialized in navigating complex challenges and implementing AI solutions",
+    "keywords": "product management, portfolio, product manager, AI, innovation",
+    "author": "Lucas Gros",
+    "url": "https://lucasgros.com",
+    "socialImage": "https://lucasgros.com/og-image.jpg"
+  },
+  "navigation": {
+    "logo": "LG",
+    "links": [
+      { "name": "About", "url": "#about", "number": "01" },
+      { "name": "Experience", "url": "#experience", "number": "02" },
+      { "name": "Projects", "url": "#projects", "number": "03" },
+      { "name": "Skills", "url": "#skills", "number": "04" },
+      { "name": "Education", "url": "#education", "number": "05" },
+      { "name": "Contact", "url": "#contact", "number": "06" }
+    ],
+    "social": [
+      { "name": "LinkedIn", "url": "#", "icon": "fab fa-linkedin-in" },
+      { "name": "GitHub", "url": "#", "icon": "fab fa-github" },
+      { "name": "Twitter", "url": "#", "icon": "fab fa-twitter" },
+      { "name": "Email", "url": "#", "icon": "fas fa-envelope" }
+    ]
+  },
+  "hero": {
+    "intro": "Hi, my name is",
+    "name": "Lucas Gros.",
+    "tagline": "I navigate product challenges in uncharted waters.",
+    "description": "I'm a product manager specialized in creating bold solutions that drive business impact. Currently focused on AI implementation and transformation at <a href='#'>Motork</a>, where our vehicle management app achieved 10x revenue growth YoY.",
+    "ctaText": "Learn More About Me",
+    "ctaLink": "#about"
+  },
+  "about": {
+    "title": "About Me",
+    "number": "01",
+    "paragraphs": [
+      "I thrive when facing unexpected challenges and venturing into uncharted territory. My engineering background combined with product management expertise allows me to bridge technical possibilities with business outcomes.",
+      "My approach centers on creating new capabilities rather than just optimizing existing ones. I craft POCs to reduce risks and sell ideas, break down complex problems into smaller milestones, and build bridges between stakeholders to drive execution from inception to delivery.",
+      "With experience across 7 European markets and versatility from ideation to maintenance, I've consistently delivered results that matter:"
+    ],
+    "skills": [
+      "Transforming ideas into tangible products through rapid prototyping",
+      "Building connections between technical teams and business stakeholders",
+      "Using data to inform decisions and demonstrate product vision",
+      "Managing roadmaps for teams responsible for significant revenue"
+    ],
+    "closing": "When I'm not building products, I enjoy sailing - perhaps why I naturally gravitate toward navigating complexity and finding paths through uncertain waters."
+  },
+  "experience": {
+    "title": "Where I've Made an Impact",
+    "number": "02",
+    "jobs": [
+      {
+        "id": "motork",
+        "company": "Motork.io",
+        "number": "01",
+        "title": "Senior Product Manager",
+        "url": "https://motork.io",
+        "period": "September 2022 - Present",
+        "description": [
+          "Managed roadmap for 2 teams responsible for 70% of product revenue",
+          "Transformed vehicle management app into a profit center with 10x revenue YoY",
+          "Delivered AI capabilities that reduced dealers' time-to-market from 30 min to 5 minutes",
+          "Expanded product offering to 4 additional European markets",
+          "Built POCs with Claude Code, Lovable, n8n and other tools to demonstrate product vision"
+        ]
+      },
+      {
+        "id": "joy",
+        "company": "Joy From Giving",
+        "number": "02",
+        "title": "Co-founder, Head of Product & Tech",
+        "url": "#",
+        "period": "December 2024 - Present",
+        "type": "Volunteering",
+        "description": [
+          "Designed conversational agent to help volunteers find opportunities aligned with their interests",
+          "Built solutions using WordPress, Claude Code, Gemini Flash 2.5 and LangChain/Smith",
+          "Created platform that connects volunteers with meaningful opportunities"
+        ]
+      },
+      {
+        "id": "feedzai",
+        "company": "Feedzai",
+        "number": "03",
+        "title": "Product Manager",
+        "url": "https://feedzai.com",
+        "period": "July 2019 - August 2022",
+        "description": [
+          "Enabled scaling by making financial risk management products more self-serviceable",
+          "Implemented usability improvements and enhanced user management capabilities",
+          "Designed, tested & deployed risk management strategies"
+        ]
+      },
+      {
+        "id": "shiftleft",
+        "company": "ShiftLeft.PT",
+        "number": "04",
+        "title": "Product Manager | Project Manager",
+        "url": "#",
+        "period": "October 2017 - July 2019",
+        "description": [
+          "Defined and implemented secure development policies and standards",
+          "Assessed software portfolio security, identified vulnerabilities & implemented mitigation plans",
+          "Automated build & deploy pipelines and security checkpoints",
+          "Trained teams in security by design tools & techniques"
+        ]
+      },
+      {
+        "id": "trenspott",
+        "company": "Trenspott S.A.",
+        "number": "05",
+        "title": "Product Lead & Head of Business Development",
+        "url": "#",
+        "period": "October 2016 - December 2018",
+        "description": [
+          "Drove AI-based fashion trend prediction system with data scientists and fashion experts",
+          "Evangelized customer emotional profiling at major retail events",
+          "Set up AI-based services for personalized marketing that helped retailers align products with consumer preferences"
+        ]
+      },
+      {
+        "id": "petit",
+        "company": "Petit Patapon",
+        "number": "06",
+        "title": "Head of Product Management",
+        "url": "#",
+        "period": "June 2011 - December 2012",
+        "description": [
+          "Implemented a product management strategy inspired by Zara's \"pull\" system",
+          "Reduced commercial rents (-15%) & operational costs, personnel (-30%)",
+          "Tested new products and markets",
+          "Gained exposure to project management methodologies and practices"
+        ]
+      },
+      {
+        "id": "consulting",
+        "company": "Eurogroup Consulting & Solucom",
+        "number": "07",
+        "title": "Management Consultant",
+        "url": "#",
+        "period": "January 2009 - September 2016 (Fractional)",
+        "description": [
+          "Led commercial diagnostics, IT nearshoring PMO, and strategic planning projects at EUROGROUP",
+          "Managed technical initiatives including Unified Communications RFP and data networks at Solucom",
+          "Operated remotely from São Paulo for 9 months, demonstrating autonomy while conducting field work"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Some Things I've Built",
+    "number": "03",
+    "items": [
+      {
+        "featured": true,
+        "title": "AI Background Removal",
+        "description": "Developed automated background removal solution for 400+ automotive dealers across Europe. This AI implementation reduced processing time from 30 minutes to 5 minutes per vehicle, enabling dealers to list inventory faster and improve visual presentation without specialized skills.",
+        "technologies": ["AI image processing", "mobile application integration"],
+        "links": [
+          { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
+        ],
+        "image": { "placeholder": "fas fa-image" }
+      },
+      {
+        "featured": true,
+        "title": "Conversational Agent for Volunteering",
+        "description": "Created an AI assistant that helps volunteers find opportunities matching their interests and availability. The conversational interface makes the matching process more engaging and personalized compared to traditional search interfaces.",
+        "technologies": ["LangChain", "Claude", "Gemini", "WordPress"],
+        "links": [
+          { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
+        ],
+        "image": { "placeholder": "fas fa-robot" }
+      },
+      {
+        "featured": true,
+        "title": "Next-Gen UX for Stock Management",
+        "description": "Built proof-of-concept for a conversational interface to manage automotive inventory, teaching AI agents to handle stock management through natural language. This transformed a complex, form-heavy process into an intuitive conversation.",
+        "technologies": ["Claude Code", "n8n", "Zapier"],
+        "links": [
+          { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
+        ],
+        "image": { "placeholder": "fas fa-comments" }
+      }
+    ]
+  },
+  "skills": {
+    "title": "My Toolkit",
+    "number": "04",
+    "categories": [
+      {
+        "name": "Product Management",
+        "items": [
+          "Discovery & Prototyping",
+          "Data Analysis (SQL, Big Query, Looker Studio)",
+          "User Experience Design",
+          "Prioritization & Roadmapping",
+          "Stakeholder Management"
+        ]
+      },
+      {
+        "name": "AI & Technical",
+        "items": [
+          "Large Language Models (LLM)",
+          "Automation (Zapier, n8n, Lindy)",
+          "APIs (Postman, Runway, Back-end)",
+          "Vibe/Assisted Coding (Claude Code, Lovable)"
+        ]
+      },
+      {
+        "name": "Languages",
+        "items": [
+          "Portuguese (Native)",
+          "French (Native)",
+          "English (Bi-lingual)",
+          "Spanish (Professional)",
+          "Italian (Elementary)"
+        ]
+      }
+    ]
+  },
+  "education": {
+    "title": "Education",
+    "number": "05",
+    "schools": [
+      {
+        "name": "Ecole nationale supérieure des Télécommunications",
+        "degree": "Master of Engineering & Telecommunications",
+        "period": "2004 - 2008",
+        "location": "FRANCE"
+      },
+      {
+        "name": "Pontifícia Universidade Católica do Rio de Janeiro",
+        "degree": "Bachelor's Degree in Informatics",
+        "period": "2006 - 2008",
+        "location": "BRAZIL"
+      }
+    ]
+  },
+  "contact": {
+    "title": "What's Next?",
+    "number": "06",
+    "paragraphs": [
+      "I'm currently exploring Senior Product Manager opportunities with innovative startups and scaleups (under 500 employees) across Europe. I'm particularly interested in organizations creating products with tangible outcomes and positive impact.",
+      "If your company is navigating challenging product waters and needs someone who can bridge technical capabilities with business outcomes, let's talk."
+    ],
+    "ctaText": "Say Hello",
+    "email": {
+      "user": "your-email",
+      "domain": "example.com"
+    }
+  },
+  "footer": {
+    "designCredit": {
+      "text": "Design inspired by",
+      "name": "Brittany Chiang",
+      "url": "https://brittanychiang.com/"
+    },
+    "toolCredit": {
+      "text": "Built with",
+      "name": "Claude Code",
+      "url": "https://claude.ai/code"
+    },
+    "copyright": "© 2025 Lucas Gros. All Rights Reserved"
+  }
+}

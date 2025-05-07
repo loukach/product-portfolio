@@ -1,88 +1,122 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with this repository.
 
 ## Project Overview
 
-This is a personal portfolio website for a Product Manager, built with a dark theme inspired by Brittany Chiang's portfolio design. It uses vanilla JavaScript, HTML, and CSS without any frameworks (except Font Awesome for icons). The website is a single-page application with smooth scrolling between sections and animated elements.
+This is a JSON-powered portfolio website for a Product Manager, built with a dark theme inspired by Brittany Chiang's design. The site uses vanilla JavaScript, HTML, and CSS (with Font Awesome for icons) to create a responsive single-page application with smooth scrolling, animations, and a content management system through JSON.
 
-## Development Commands
+## Key Features
 
-```bash
-# If using npm:
-npm install
-
-# Start a local development server
-npx serve public
-
-# View production-ready files
-npx serve deploy
-```
-
-## Architecture
-
-- **Frontend Only**: This is a static frontend application without a backend.
-- **Single Page Application**: All content is on a single HTML page with smooth navigation between sections.
-- **CSS Variables**: The project uses CSS variables for consistent theming and easy customization.
-- **Responsive Design**: The layout adapts to various screen sizes with specific breakpoints.
-- **JavaScript Features**:
-  - Tab system for the experience section
-  - IntersectionObserver for scroll animations
-  - Smooth scrolling with custom easing functions
-  - Email obfuscation for spam protection
-  - Mobile navigation toggle
+- **JSON Content Management**: All content is loaded dynamically from content.json
+- **Single Page Design**: Smooth scrolling between sections with active navigation
+- **Responsive Layout**: Works on all device sizes with mobile navigation
+- **Interactive Elements**: Tabbed experience section, project cards, skills categories
+- **Performance Optimized**: Efficient animations using IntersectionObserver
+- **No Build Process**: Ready to deploy with no compilation step
 
 ## File Structure
 
-The project is organized into two main areas:
+```
+/
+├── index.html         # HTML skeleton structure
+├── styles.css         # CSS styling with variables
+├── script.js          # JavaScript with content loader
+├── content.json       # All portfolio content in JSON format
+├── favicon.svg        # Site icon
+├── README.md          # User documentation
+└── CLAUDE.md          # This file - guidance for Claude
+```
 
-### Development Files
-- `public/index.html`: Main HTML file with all content sections
-- `public/favicon.svg`: SVG icon for the site
-- `src/index.js`: JavaScript for interaction and animations
-- `src/styles/main.css`: Unminified CSS with comments and organization
+## Running the Project
 
-### Production Files (in `deploy/` directory)
-- `index.html`: Optimized HTML
-- `styles.css`: Minified CSS
-- `script.js`: Minified JavaScript
-- `favicon.svg`: Site icon
-- `README.md`: Deployment instructions
+```bash
+# Using Python
+python -m http.server
+
+# OR using Node.js
+npx serve
+```
+
+## Code Organization
+
+### HTML (index.html)
+- Semantic HTML5 structure with appropriate landmarks
+- Empty container elements that are populated by JavaScript
+- Minimal inline content - skeleton structure only
+- Font Awesome for icons
+
+### CSS (styles.css)
+- CSS variables at the top for theming
+- Mobile-first responsive design
+- Flexbox and Grid for layouts
+- Smooth animations and transitions
+- Media queries for responsive breakpoints
+
+### JavaScript (script.js)
+Two main components:
+1. **Core Functionality**:
+   - Smooth scrolling
+   - Tab system for experience section
+   - IntersectionObserver for scroll animations
+   - Mobile navigation toggle
+   - Scroll-to-top button
+
+2. **Content Loader**:
+   - Fetches content.json asynchronously
+   - Populates all sections dynamically
+   - Creates DOM elements based on JSON data
+   - Sets up event handlers for interactive elements
+
+### Content (content.json)
+Structured JSON with sections for:
+- Meta information
+- Navigation links
+- Hero section
+- About section with skills
+- Experience items
+- Projects
+- Skills categories
+- Education history
+- Contact information
+- Footer credits
 
 ## Modifying Content
 
-When updating this portfolio:
+The main way to update the site is by editing content.json:
 
-1. **Personal Information**: Update personal details in `public/index.html`
-2. **Experience**: Modify the tab sections in the experience area
-3. **Projects**: Update the project cards with your own work
-4. **Skills**: Adjust the skills categories and items to match your expertise
-5. **Contact**: Change the email address in `src/index.js` (look for `emailParts` array)
+1. Each section in the JSON has a specific schema that must be maintained
+2. New entries (jobs, projects, etc.) can be added by following the existing patterns
+3. The content loader will automatically process new items
+
+For structure changes:
+1. Update the HTML skeleton in index.html
+2. Add corresponding sections to styles.css
+3. Extend the content loader functions in script.js to handle new sections
+4. Add the new content structure to content.json
 
 ## Styling Guidelines
 
-- Maintain the dark theme with the navy/cyan color scheme
-- Keep CSS variables at the top of the stylesheet for easy customization
-- Follow the existing naming conventions for classes
-- Preserve the responsive breakpoints for consistent mobile experience
+- Maintain the dark theme with navy/cyan color scheme
+- Use the existing CSS variables for consistency
+- Follow the established naming conventions
+- Keep responsive breakpoints consistent
+- Test any style changes across multiple screen sizes
 
-## JavaScript Considerations
+## JavaScript Guidelines
 
-- The site uses vanilla JavaScript with no dependencies
-- Animation timing is managed through CSS variables
-- Tab functionality is handled via data attributes
-- IntersectionObserver provides efficient scroll-based animations
+- Maintain separation between UI functionality and content loading
+- Use modern JavaScript (ES6+) features
+- Preserve the asynchronous content loading pattern
+- Keep event handlers properly scoped
+- Use the established animation patterns
 
 ## Deployment
 
-For deployment updates:
+The site is ready to deploy as-is to any static hosting service:
+- GitHub Pages
+- Netlify
+- Vercel
+- Any standard web hosting
 
-1. Make changes to the development files first
-2. Test thoroughly in the browser
-3. Minify the CSS and JavaScript
-4. Update the files in the `deploy/` directory
-5. The site can be deployed to any static hosting service (GitHub Pages is recommended)
-
-## GitHub Pages Setup
-
-The repository is configured for GitHub Pages from the `main` branch. The live site is available at: [https://loukach.github.io/product-portfolio](https://loukach.github.io/product-portfolio)
+No build process is required - simply upload all files.

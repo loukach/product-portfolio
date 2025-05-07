@@ -1,0 +1,25 @@
+{
+  "name": "product-portfolio",
+  "version": "1.0.0",
+  "description": "A static web application showcasing products with responsive design",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "serve",
+    "dev": "serve -s public",
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write \"src/**/*.{js,css,html}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "prettier": "^3.0.0",
+    "serve": "^14.2.0"
+  },
+  "keywords": [
+    "product",
+    "portfolio",
+    "static",
+    "web"
+  ],
+  "author": "",
+  "license": "MIT"
+}

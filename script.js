@@ -161,11 +161,21 @@ function populateTestimonials(e) {
 
 // Function to initialize all interactive features
 function initializeInteractiveFeatures() {
+    // Initialize color palette functionality
+    initializePaletteSelector();
+    
     // Initialize reading mode toggle
     const readingModeToggle = document.querySelector(".reading-mode-toggle");
     if (readingModeToggle) {
         readingModeToggle.addEventListener("click", function() {
             document.body.classList.toggle("reading-mode");
+            
+            // When reading mode changes, we need to update the active palette colors
+            const currentPalette = document.body.getAttribute("data-palette") || "original";
+            applyPalette(currentPalette);
+            
+            // When reading mode changes, save the current state
+            saveUserPreferences();
         });
     }
     
@@ -242,6 +252,131 @@ function initializeInteractiveFeatures() {
                 }
             });
         });
+    }
+}
+
+// Palette Selector Functions
+function initializePaletteSelector() {
+    const paletteSelector = document.querySelector(".palette-selector");
+    const paletteToggle = document.querySelector(".palette-toggle");
+    const paletteOptions = document.querySelectorAll(".palette-option");
+    
+    // Toggle dropdown visibility
+    if (paletteToggle) {
+        paletteToggle.addEventListener("click", function() {
+            paletteSelector.classList.toggle("active");
+        });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        if (paletteSelector && paletteSelector.classList.contains("active") && 
+            !paletteSelector.contains(event.target)) {
+            paletteSelector.classList.remove("active");
+        }
+    });
+    
+    // Handle palette selection
+    paletteOptions.forEach(option => {
+        option.addEventListener("click", function() {
+            const palette = this.getAttribute("data-palette");
+            
+            // Remove active class from all options
+            paletteOptions.forEach(opt => opt.classList.remove("active"));
+            
+            // Add active class to selected option
+            this.classList.add("active");
+            
+            // Apply the selected palette
+            applyPalette(palette);
+            
+            // Close the dropdown
+            paletteSelector.classList.remove("active");
+            
+            // Save user preferences
+            saveUserPreferences();
+        });
+    });
+    
+    // Load saved preferences on init
+    loadUserPreferences();
+}
+
+// Apply palette to document
+function applyPalette(palette) {
+    // Reference to document root for CSS variables
+    const root = document.documentElement;
+    
+    // Store the current palette name as a data attribute for reference
+    document.body.setAttribute("data-palette", palette);
+    
+    // Check if we're in dark or light mode currently
+    const isLightMode = document.body.classList.contains("reading-mode");
+    const mode = isLightMode ? "light" : "dark";
+    
+    // Update CSS variables based on palette and mode
+    // Main Background
+    root.style.setProperty('--navy', `var(--palette-${palette}-${mode}-bg)`);
+    
+    // Card Background
+    root.style.setProperty('--light-navy', `var(--palette-${palette}-${mode}-card)`);
+    
+    // Accent Color
+    root.style.setProperty('--cyan', `var(--palette-${palette}-${mode}-accent)`);
+    
+    // Text Colors
+    root.style.setProperty('--lightest-slate', `var(--palette-${palette}-${mode}-text)`);
+    root.style.setProperty('--slate', `var(--palette-${palette}-${mode}-text-secondary)`);
+    
+    // Light Mode Variables (for toggling)
+    root.style.setProperty('--light-bg', `var(--palette-${palette}-light-bg)`);
+    root.style.setProperty('--light-secondary', `var(--palette-${palette}-light-card)`);
+    root.style.setProperty('--light-accent', `var(--palette-${palette}-light-accent)`);
+    root.style.setProperty('--light-text', `var(--palette-${palette}-light-text)`);
+    root.style.setProperty('--light-text-secondary', `var(--palette-${palette}-light-text-secondary)`);
+    
+    // Apply smooth transition to body
+    document.body.style.transition = "var(--palette-transition)";
+    
+    // Update the active state in the UI
+    const paletteOptions = document.querySelectorAll(".palette-option");
+    paletteOptions.forEach(option => {
+        option.classList.toggle("active", option.getAttribute("data-palette") === palette);
+    });
+}
+
+// Save user preferences to localStorage
+function saveUserPreferences() {
+    const currentPalette = document.body.getAttribute("data-palette") || "original";
+    const isDarkMode = !document.body.classList.contains("reading-mode");
+    
+    const preferences = {
+        palette: currentPalette,
+        darkMode: isDarkMode
+    };
+    
+    localStorage.setItem("portfolioPreferences", JSON.stringify(preferences));
+}
+
+// Load user preferences from localStorage
+function loadUserPreferences() {
+    const savedPrefs = localStorage.getItem("portfolioPreferences");
+    
+    if (savedPrefs) {
+        const preferences = JSON.parse(savedPrefs);
+        
+        // Apply saved palette
+        applyPalette(preferences.palette);
+        
+        // Apply saved dark/light mode
+        if (preferences.darkMode === false) {
+            document.body.classList.add("reading-mode");
+        } else {
+            document.body.classList.remove("reading-mode");
+        }
+    } else {
+        // Default to original palette if no saved preferences
+        applyPalette("original");
     }
 }
 

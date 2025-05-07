@@ -1,25 +1,99 @@
 :root {
-    /* Dark Mode Colors (Default) */
-    --navy: #0a192f;
-    --light-navy: #112240;
+    /* Original Portfolio Palette */
+    --palette-original-dark-bg: #0a192f;
+    --palette-original-dark-card: #112240;
+    --palette-original-dark-accent: #64ffda;
+    --palette-original-dark-text: #ccd6f6;
+    --palette-original-dark-text-secondary: #8892b0;
+
+    --palette-original-light-bg: #f5f5f7;
+    --palette-original-light-card: #ffffff;
+    --palette-original-light-accent: #007bff;
+    --palette-original-light-text: #1d1d1f;
+    --palette-original-light-text-secondary: #424245;
+
+    /* Neo-Futuristic Palette */
+    --palette-neofuture-dark-bg: #0E0F1A;
+    --palette-neofuture-dark-card: #171923;
+    --palette-neofuture-dark-accent: #00FFFF;
+    --palette-neofuture-dark-accent-secondary: #A259FF;
+    --palette-neofuture-dark-text: #E5E7EB;
+    --palette-neofuture-dark-text-secondary: #9CA3AF;
+
+    --palette-neofuture-light-bg: #F9FAFB;
+    --palette-neofuture-light-card: #FFFFFF;
+    --palette-neofuture-light-accent: #00FFFF;
+    --palette-neofuture-light-accent-secondary: #A259FF;
+    --palette-neofuture-light-text: #111827;
+    --palette-neofuture-light-text-secondary: #4B5563;
+
+    /* Warm Minimal Tech Palette */
+    --palette-warm-dark-bg: #1F1E1C;
+    --palette-warm-dark-card: #2D2C2A;
+    --palette-warm-dark-accent: #FF6B6B;
+    --palette-warm-dark-accent-secondary: #0E918C;
+    --palette-warm-dark-text: #F1F1F1;
+    --palette-warm-dark-text-secondary: #B1B1B1;
+
+    --palette-warm-light-bg: #FDFBF9;
+    --palette-warm-light-card: #FFFFFF;
+    --palette-warm-light-accent: #FF6B6B;
+    --palette-warm-light-accent-secondary: #0E918C;
+    --palette-warm-light-text: #1A1A1A;
+    --palette-warm-light-text-secondary: #6A6A6A;
+
+    /* Midnight Terminal Palette */
+    --palette-terminal-dark-bg: #0B0C10;
+    --palette-terminal-dark-card: #1A1B21;
+    --palette-terminal-dark-accent: #00FF88;
+    --palette-terminal-dark-accent-secondary: #00BFFF;
+    --palette-terminal-dark-text: #E0E0E0;
+    --palette-terminal-dark-text-secondary: #999999;
+
+    --palette-terminal-light-bg: #F5F7FA;
+    --palette-terminal-light-card: #FFFFFF;
+    --palette-terminal-light-accent: #00FF88;
+    --palette-terminal-light-accent-secondary: #00BFFF;
+    --palette-terminal-light-text: #1E1E1E;
+    --palette-terminal-light-text-secondary: #6E6E6E;
+
+    /* Creative Builder Palette */
+    --palette-creative-dark-bg: #1A1A2E;
+    --palette-creative-dark-card: #292952;
+    --palette-creative-dark-accent: #FFC400;
+    --palette-creative-dark-accent-secondary: #2D3E50;
+    --palette-creative-dark-text: #EDEDED;
+    --palette-creative-dark-text-secondary: #A7A7A7;
+
+    --palette-creative-light-bg: #FEFEFC;
+    --palette-creative-light-card: #FFFFFF;
+    --palette-creative-light-accent: #FFC400;
+    --palette-creative-light-accent-secondary: #2D3E50;
+    --palette-creative-light-text: #242424;
+    --palette-creative-light-text-secondary: #6B6B6B;
+    
+    /* Active Palette (defaults to original) */
+    --navy: var(--palette-original-dark-bg);
+    --light-navy: var(--palette-original-dark-card);
     --navy-shadow: #020c1b;
-    --slate: #8892b0;
+    --slate: var(--palette-original-dark-text-secondary);
     --light-slate: #a8b2d1;
-    --lightest-slate: #ccd6f6;
+    --lightest-slate: var(--palette-original-dark-text);
     --white: #e6f1ff;
-    --cyan: #64ffda;
+    --cyan: var(--palette-original-dark-accent);
     
     /* Light Mode Colors */
-    --light-bg: #f5f5f7;
-    --light-secondary: #ffffff;
-    --light-accent: #007bff;
-    --light-text: #1d1d1f;
-    --light-text-secondary: #424245;
+    --light-bg: var(--palette-original-light-bg);
+    --light-secondary: var(--palette-original-light-card);
+    --light-accent: var(--palette-original-light-accent);
+    --light-text: var(--palette-original-light-text);
+    --light-text-secondary: var(--palette-original-light-text-secondary);
     --light-border: #d2d2d7;
     
     /* Transitions */
     --transition: all .25s cubic-bezier(0.645, 0.045, 0.355, 1);
     --micro-transition: all .15s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --palette-transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
     
     /* Typography */
     --font-sans: 'Calibre', 'Inter', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
@@ -69,7 +143,8 @@ body {
     font-family: var(--font-sans);
     font-size: var(--fz-md);
     line-height: 1.5;
-    overflow-x: hidden
+    overflow-x: hidden;
+    transition: var(--palette-transition);
 }
 
 h1,
@@ -80,17 +155,19 @@ h5,
 h6 {
     color: var(--lightest-slate);
     font-weight: 600;
-    margin: 0 0 10px 0
+    margin: 0 0 10px 0;
+    transition: color 0.5s ease;
 }
 
 p {
-    margin: 0 0 20px 0
+    margin: 0 0 20px 0;
+    transition: color 0.5s ease;
 }
 
 a {
     color: var(--cyan);
     text-decoration: none;
-    transition: var(--transition)
+    transition: var(--transition), color 0.5s ease;
 }
 
 a:hover {
@@ -156,7 +233,7 @@ body.reading-mode {
 .reading-mode-toggle {
     position: fixed;
     top: 20px;
-    right: 70px;
+    right: 120px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -178,6 +255,90 @@ body.reading-mode {
 
 body.reading-mode .reading-mode-toggle i {
     transform: rotate(180deg);
+}
+
+/* Palette Selector Styles */
+.palette-selector {
+    position: fixed;
+    top: 20px;
+    right: 70px;
+    z-index: 20;
+}
+
+.palette-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-navy);
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.palette-toggle:hover {
+    transform: translateY(-3px);
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+.palette-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: var(--light-navy);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    padding: 15px;
+    min-width: 220px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+}
+
+.palette-selector.active .palette-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.palette-option {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--micro-transition);
+}
+
+.palette-option:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+.palette-option.active {
+    background-color: rgba(100, 255, 218, 0.2);
+}
+
+.palette-preview {
+    display: flex;
+    margin-right: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--slate);
+}
+
+.palette-color {
+    width: 15px;
+    height: 30px;
+    display: block;
+}
+
+.palette-name {
+    color: var(--lightest-slate);
+    font-size: var(--fz-sm);
 }
 
 /* Scroll Progress Indicator */
@@ -374,7 +535,7 @@ body.reading-mode .reading-mode-toggle i {
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
-    transition: var(--transition);
+    transition: var(--transition), color 0.5s ease, border-color 0.5s ease;
     margin-top: 20px;
     animation-delay: var(--delay-5);
     position: relative;
@@ -582,7 +743,7 @@ body.reading-mode .reading-mode-toggle i {
     border-radius: var(--border-radius);
     padding: 0;
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-    transition: var(--transition);
+    transition: var(--transition), background-color 0.5s ease;
     overflow: hidden;
 }
 
@@ -616,11 +777,13 @@ body.reading-mode .reading-mode-toggle i {
     font-weight: 600;
     display: flex;
     align-items: center;
+    transition: color 0.5s ease;
 }
 
 .experience-company a {
     color: var(--cyan);
     position: relative;
+    transition: color 0.5s ease;
 }
 
 .experience-company a::after {
@@ -663,7 +826,7 @@ body.reading-mode .reading-mode-toggle i {
     justify-content: center;
     align-items: center;
     margin-left: 15px;
-    transition: var(--transition);
+    transition: var(--transition), color 0.5s ease, border-color 0.5s ease;
     cursor: pointer;
 }
 
@@ -1376,6 +1539,10 @@ body.nav-open {
     }
     
     .reading-mode-toggle {
+        right: 120px;
+    }
+    
+    .palette-selector {
         right: 70px;
     }
     

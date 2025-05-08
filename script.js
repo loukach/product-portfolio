@@ -37,7 +37,7 @@ async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)th
         const n = document.createElement("li");
         const a = document.createElement("a");
         a.href = e.url;
-        a.innerHTML = `<span>${e.number}.</span> ${e.name}`;
+        a.innerHTML = `<span>—</span> ${e.name}`;
         if ("About" === e.name) a.classList.add("active");
         n.appendChild(a);
         t.appendChild(n);

@@ -2,7 +2,92 @@
 document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".nav-toggle"),t=document.querySelector(".sidebar"),s=document.querySelectorAll(".nav-links a");e&&e.addEventListener("click",()=>{t.classList.toggle("active"),document.body.classList.toggle("nav-open"),e.classList.toggle("active")}),s.forEach(s=>{s.addEventListener("click",()=>{t.classList.remove("active"),document.body.classList.remove("nav-open"),e&&e.classList.remove("active")})}),document.addEventListener("click",s=>{t.classList.contains("active")&&!t.contains(s.target)&&!e.contains(s.target)&&(t.classList.remove("active"),document.body.classList.remove("nav-open"),e.classList.remove("active"))}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();const t=this.getAttribute("href");if("#"===t)return;const s=document.querySelector(t);if(s){const e=window.pageYOffset,t=s.getBoundingClientRect().top+window.pageYOffset,a=t-e,n=800;let o=null;const i=e=>e<.5?4*e*e*e:(e-1)*(2*e-2)*(2*e-2)+1;window.requestAnimationFrame(function t(s){o||(o=s);const c=s-o,l=Math.min(c/n,1),r=i(l);window.scrollTo(0,e+a*r),c<n&&window.requestAnimationFrame(t)})}})});const a=document.querySelectorAll(".tab-button"),n=document.querySelectorAll(".tab-content");a.forEach(e=>{e.addEventListener("click",()=>{if(e.classList.contains("active"))return;a.forEach(e=>{e.classList.remove("active")}),n.forEach(t=>{t.classList.contains("active")&&(t.style.opacity="0",t.style.transform="translateX(10px)",setTimeout(()=>{n.forEach(e=>{e.classList.remove("active")}),e.classList.add("active");const t=e.getAttribute("data-tab"),s=document.getElementById(t);s.classList.add("active"),void s.offsetWidth,setTimeout(()=>{s.style.opacity="1",s.style.transform="translateX(0)"},50)},200))}),document.querySelector(".tab-content.active")||(e.classList.add("active"),document.getElementById(e.getAttribute("data-tab")).classList.add("active"),setTimeout(()=>{document.getElementById(e.getAttribute("data-tab")).style.opacity="1",document.getElementById(e.getAttribute("data-tab")).style.transform="translateX(0)"},50))})});const o=document.querySelector(".scroll-to-top");function i(){window.scrollY>500?o.classList.add("visible"):o.classList.remove("visible")}o.addEventListener("click",()=>{const e=window.pageYOffset,t=800;let s=null;const a=e=>e<.5?2*e*e:-1+(4-2*e)*e;window.requestAnimationFrame(function n(o){s||(s=o);const i=o-s,c=Math.min(i/t,1),l=a(c);window.scrollTo(0,e*(1-l)),i<t&&window.requestAnimationFrame(n)})});const c=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add("active");const t=e.target.getAttribute("id");s.forEach(e=>{e.classList.remove("active"),e.getAttribute("href")===`#${t}`&&e.classList.add("active")})}})},{root:null,rootMargin:"-20% 0px -20% 0px",threshold:.1});document.querySelectorAll(".section").forEach(e=>{c.observe(e)}),window.addEventListener("scroll",()=>{i()});const l=document.querySelector(".contact-button");if(l){const e=["your-email","example.com"],t=e[0]+"[at]"+e[1];l.setAttribute("href","mailto:"+t),l.addEventListener("click",function(t){this.setAttribute("href","mailto:"+e[0]+"@"+e[1])})}document.querySelector(".section")&&document.querySelector(".section").classList.add("active")});
 
 // Content Loader - Minified
-async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)throw new Error(`HTTP error! Status: ${e.status}`);const t=await e.json();populateContent(t)}catch(e){console.error("Error loading content:",e)}}function populateContent(e){populateMetadata(e.meta),populateNavigation(e.navigation),populateHero(e.hero),populateAbout(e.about),populateExperience(e.experience),populateProjects(e.projects),populateTestimonials(e.testimonials),populateSkills(e.skills),populateEducation(e.education),populateContact(e.contact),populateFooter(e.footer),initializeInteractiveFeatures()}function populateMetadata(e){document.title=e.title,document.querySelector('meta[name="description"]').setAttribute("content",e.description),document.querySelector('meta[name="keywords"]').setAttribute("content",e.keywords),document.querySelector('meta[name="author"]').setAttribute("content",e.author),document.querySelector('meta[property="og:title"]').setAttribute("content",e.title),document.querySelector('meta[property="og:description"]').setAttribute("content",e.description),document.querySelector('meta[property="og:url"]').setAttribute("content",e.url),document.querySelector('meta[property="og:image"]').setAttribute("content",e.socialImage),document.querySelector('meta[property="twitter:title"]').setAttribute("content",e.title),document.querySelector('meta[property="twitter:description"]').setAttribute("content",e.description),document.querySelector('meta[property="twitter:url"]').setAttribute("content",e.url),document.querySelector('meta[property="twitter:image"]').setAttribute("content",e.socialImage),document.querySelector('link[rel="canonical"]').setAttribute("href",e.url)}function populateNavigation(e){document.querySelector(".logo a").textContent=e.logo;const t=document.querySelector(".nav-links");t.innerHTML="",e.links.forEach(e=>{const n=document.createElement("li"),a=document.createElement("a");a.href=e.url,a.innerHTML=`<span>${e.number}.</span> ${e.name}`,"About"===e.name&&a.classList.add("active"),n.appendChild(a),t.appendChild(n)});const n=document.querySelector(".social-links");n.innerHTML="",e.social.forEach(e=>{const t=document.createElement("a");t.href=e.url,t.setAttribute("aria-label",e.name);const a=document.createElement("i");a.className=e.icon,t.appendChild(a),n.appendChild(t)})}function populateHero(e){const t=document.querySelector(".profile-intro");t.querySelector(".intro").textContent=e.intro,t.querySelector(".title").textContent=e.name,t.querySelector(".subtitle").textContent=e.tagline,t.querySelector(".description").innerHTML=e.description;const n=t.querySelector(".cta-button");n.textContent=e.ctaText,n.href=e.ctaLink}function populateAbout(e){const t=document.getElementById("about");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{const t=document.createElement("p");t.textContent=e,n.appendChild(t)});const a=document.createElement("ul");a.className="skills-list",e.skills.forEach(e=>{const t=document.createElement("li");t.textContent=e,a.appendChild(t)}),n.appendChild(a);const o=document.createElement("p");o.textContent=e.closing,n.appendChild(o)}function populateExperience(e) {
+async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)throw new Error(`HTTP error! Status: ${e.status}`);const t=await e.json();populateContent(t)}catch(e){console.error("Error loading content:",e)}}function populateContent(e){populateMetadata(e.meta),populateNavigation(e.navigation),populateHero(e.hero),populateAbout(e.about),populateExperience(e.experience),populateProjects(e.projects),populateTestimonials(e.testimonials),populateSkills(e.skills),populateEducation(e.education),populateContact(e.contact),populateFooter(e.footer),initializeInteractiveFeatures()}function populateMetadata(e){
+    // Set document title
+    document.title = e.title;
+    
+    // Helper function to safely update meta tags
+    const updateMetaTag = (selector, attribute, value) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.setAttribute(attribute, value);
+        }
+    };
+    
+    // Update meta tags only if they exist
+    updateMetaTag('meta[name="description"]', 'content', e.description);
+    updateMetaTag('meta[name="keywords"]', 'content', e.keywords);
+    updateMetaTag('meta[name="author"]', 'content', e.author);
+    updateMetaTag('meta[property="og:title"]', 'content', e.title);
+    updateMetaTag('meta[property="og:description"]', 'content', e.description);
+    updateMetaTag('meta[property="og:url"]', 'content', e.url);
+    updateMetaTag('meta[property="og:image"]', 'content', e.socialImage);
+    updateMetaTag('meta[property="twitter:title"]', 'content', e.title);
+    updateMetaTag('meta[property="twitter:description"]', 'content', e.description);
+    updateMetaTag('meta[property="twitter:url"]', 'content', e.url);
+    updateMetaTag('meta[property="twitter:image"]', 'content', e.socialImage);
+    updateMetaTag('link[rel="canonical"]', 'href', e.url);
+}function populateNavigation(e){
+    // Skip changing the logo since we now use an image instead of text
+    
+    // Update navigation links
+    const t = document.querySelector(".nav-links");
+    t.innerHTML = "";
+    e.links.forEach(e => {
+        const n = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = e.url;
+        a.innerHTML = `<span>${e.number}.</span> ${e.name}`;
+        if ("About" === e.name) a.classList.add("active");
+        n.appendChild(a);
+        t.appendChild(n);
+    });
+    
+    // Update social links
+    const n = document.querySelector(".social-links");
+    n.innerHTML = "";
+    e.social.forEach(e => {
+        const t = document.createElement("a");
+        t.href = e.url;
+        t.setAttribute("aria-label", e.name);
+        const a = document.createElement("i");
+        a.className = e.icon;
+        t.appendChild(a);
+        n.appendChild(t);
+    });
+}function populateHero(e){
+    const t = document.querySelector(".profile-intro");
+    if (!t) return; // Skip if element doesn't exist
+    
+    // Safely set text content
+    const safeSetText = (selector, text) => {
+        const element = t.querySelector(selector);
+        if (element) {
+            element.textContent = text;
+        }
+    };
+    
+    // Safely set HTML content
+    const safeSetHtml = (selector, html) => {
+        const element = t.querySelector(selector);
+        if (element) {
+            element.innerHTML = html;
+        }
+    };
+    
+    // Update hero elements
+    safeSetText(".intro", e.intro);
+    safeSetText(".title", e.name);
+    safeSetText(".subtitle", e.tagline);
+    safeSetHtml(".description", e.description);
+    
+    // Update CTA button
+    const n = t.querySelector(".cta-button");
+    if (n) {
+        n.textContent = e.ctaText;
+        n.href = e.ctaLink;
+    }
+}function populateAbout(e){const t=document.getElementById("about");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{const t=document.createElement("p");t.textContent=e,n.appendChild(t)});const a=document.createElement("ul");a.className="skills-list",e.skills.forEach(e=>{const t=document.createElement("li");t.textContent=e,a.appendChild(t)}),n.appendChild(a);const o=document.createElement("p");o.textContent=e.closing,n.appendChild(o)}function populateExperience(e) {
     const t = document.getElementById("experience");
     t.querySelector(".section-title").innerHTML = `<span>${e.number}.</span> ${e.title}`;
     

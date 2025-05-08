@@ -14,9 +14,7 @@
       { "name": "Experience", "url": "#experience", "number": "02" },
       { "name": "Projects", "url": "#projects", "number": "03" },
       { "name": "Testimonials", "url": "#testimonials", "number": "04" },
-      { "name": "Skills", "url": "#skills", "number": "05" },
-      { "name": "Education", "url": "#education", "number": "06" },
-      { "name": "Contact", "url": "#contact", "number": "07" }
+      { "name": "Skills", "url": "#skills", "number": "05" }
     ],
     "social": [
       { "name": "LinkedIn", "url": "https://www.linkedin.com/in/lucasgros", "icon": "fab fa-linkedin-in" },

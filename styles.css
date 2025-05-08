@@ -386,7 +386,6 @@ body.reading-mode .reading-mode-toggle i {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 15px;
     margin: 0;
     padding: 0;
 }
@@ -470,7 +469,7 @@ body.reading-mode .reading-mode-toggle i {
     justify-content: center;
     align-items: flex-start;
     padding: 0;
-    margin: 20px 0 40px;
+    margin: 20px 0 20px;
 }
 
 .profile-intro>* {
@@ -520,7 +519,6 @@ body.reading-mode .reading-mode-toggle i {
 .description {
     color: var(--slate);
     max-width: 540px;
-    margin-bottom: 40px;
     animation-delay: var(--delay-4)
 }
 
@@ -679,8 +677,6 @@ body.reading-mode .reading-mode-toggle i {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    mix-blend-mode: multiply;
-    filter: grayscale(100%) contrast(1) brightness(90%);
     transition: var(--transition)
 }
 
@@ -713,8 +709,7 @@ body.reading-mode .reading-mode-toggle i {
 }
 
 .about-image:hover .profile-img-container {
-    filter: none;
-    mix-blend-mode: normal
+    transform: translateY(-5px)
 }
 
 @media (max-width:768px) {

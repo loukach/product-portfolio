@@ -21,7 +21,6 @@
     "social": [
       { "name": "LinkedIn", "url": "https://www.linkedin.com/in/lucasgros", "icon": "fab fa-linkedin-in" },
       { "name": "GitHub", "url": "https://github.com/loukach", "icon": "fab fa-github" },
-      { "name": "Twitter", "url": "#", "icon": "fab fa-twitter" },
       { "name": "Email", "url": "lucas.gros@gmail.com", "icon": "fas fa-envelope" }
     ]
   },
@@ -37,8 +36,8 @@
     "title": "About Me",
     "number": "01",
     "paragraphs": [
-      "I thrive when facing unexpected challenges and venturing into uncharted territory. My engineering background combined with product management expertise allows me to bridge technical possibilities with business outcomes.",
-      "My approach centers on creating new capabilities rather than just optimizing existing ones. I craft POCs to reduce risks and sell ideas, break down complex problems into smaller milestones, and build bridges between stakeholders to drive execution from inception to delivery.",
+      "I thrive when facing unexpected challenges and venturing into uncharted territory. My engineering background combined with neverending curiosity and total ownership enable me to make things happen.",
+      "Creativity in my blood - I shine when creating more than fine-tuning. I craft POCs to reduce risks and sell ideas, break down complex problems into smaller milestones, and build bridges between stakeholders to deliver - from inception to ROI.",
       "With experience across 7 European markets and versatility from ideation to maintenance, I've consistently delivered results that matter:"
     ],
     "skills": [

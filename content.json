@@ -194,7 +194,7 @@
       {
         "content": "Having Lucas on the team has not only enabled us to deliver features but also to generate substantial value and revenue for SSK. His advocacy for value generation has been instrumental in our success.",
         "author": {
-          "name": "Barbara Garbacz",
+          "name": "Barbara",
           "title": "Head of Product at MotorK",
           "image": {
             "initials": "BG"
@@ -204,8 +204,8 @@
       {
         "content": "Lucas stands out for his operational excellence. He's dedicated to quickly and efficiently solving problems with smart solutions. His knack for critical thinking, adept questioning, and relentless pursuit of the best outcomes make him a standout among his colleagues.",
         "author": {
-          "name": "Barbara Garbacz",
-          "title": "Chief Product Officer at MotorK",
+          "name": "Barbara",
+          "title": "Head of Product at MotorK",
           "image": {
             "initials": "BG"
           }
@@ -214,10 +214,70 @@
       {
         "content": "Lucas came and out of the bat tried to make a difference in a subtle way. He is commended for his knowledge of product practices, cleverness, curiosity, and keen thinking process. He is able to challenge, push and promote without being seen as 'pushy'.",
         "author": {
-          "name": "Miguel Boto",
-          "title": "Manager at MotorK",
+          "name": "Miguel",
+          "title": "Head of Product at MotorK",
           "image": {
             "initials": "MB"
+          }
+        }
+      },
+      {
+        "content": "Lukas has done a great job within the SSK team to complete multiple initiatives and solve large challenges within the platform. His work was organized well for all the project stakeholders and major elements of projects were documented well.",
+        "author": {
+          "name": "Kevin",
+          "title": "CPO at MotorK",
+          "image": {
+            "initials": "KO"
+          }
+        }
+      },
+      {
+        "content": "Working with Lucas is a continuous opportunity for professional growth, thanks to his critical thinking and ability to provide constructive feedback that improves the team's collective work. His contribution to the team is essential, and I consider him a highly valuable asset.",
+        "author": {
+          "name": "Mario",
+          "title": "Senior Product Designer at MotorK",
+          "image": {
+            "initials": "MP"
+          }
+        }
+      },
+      {
+        "content": "Lucas is straightforward, thoughtful, committed and efficient. Having him onboard ensures the job gets done fast and secure. Curious about new approaches and way of doing things, he is the right person for performing in depth analysis and building creative solutions.",
+        "author": {
+          "name": "Laetitia",
+          "title": "Manager @ Eurogroup Consulting Portugal | Director at B Lab Portugal",
+          "image": {
+            "initials": "LA"
+          }
+        }
+      },
+      {
+        "content": "His sharp commercial sense with focus on customer needs and value delivered to them has always permitted us to tailor win-win solutions for all stake holders. He has strong, unshakable values anchored in responsibility, rigour and perseverance. A true gem.",
+        "author": {
+          "name": "Anchal",
+          "title": "Founder of Trenspott | Faculty Co-Chair at IIM Ahmedabad",
+          "image": {
+            "initials": "AJ"
+          }
+        }
+      },
+      {
+        "content": "Lucas is above all a great strategic thinker with a pragmatic and assertive problem-solving approach. Not only is he independent and chases after his dreams and goals, he has an open spirit and is a fantastic motivator and team member; he teaches, delegates and delivers.",
+        "author": {
+          "name": "Filipa",
+          "title": "Senior Manager at EUROGROUP CONSULTING",
+          "image": {
+            "initials": "FB"
+          }
+        }
+      },
+      {
+        "content": "He is someone who has very good sense of responsibility, he is absolutely reliable (does not let you down as regards deadlines), technically sound, and with good client communication and relationship skills.",
+        "author": {
+          "name": "José",
+          "title": "Senior Advisor at EUROGROUP CONSULTING",
+          "image": {
+            "initials": "JA"
           }
         }
       }

@@ -56,37 +56,41 @@ async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)th
         n.appendChild(t);
     });
 }function populateHero(e){
-    const t = document.querySelector(".profile-intro");
-    if (!t) return; // Skip if element doesn't exist
+    // Populate all profile-intro sections (desktop in left panel and mobile in right panel)
+    const profileIntros = document.querySelectorAll(".profile-intro");
     
-    // Safely set text content
-    const safeSetText = (selector, text) => {
-        const element = t.querySelector(selector);
-        if (element) {
-            element.textContent = text;
+    profileIntros.forEach(t => {
+        if (!t) return; // Skip if element doesn't exist
+        
+        // Safely set text content
+        const safeSetText = (selector, text) => {
+            const element = t.querySelector(selector);
+            if (element) {
+                element.textContent = text;
+            }
+        };
+        
+        // Safely set HTML content
+        const safeSetHtml = (selector, html) => {
+            const element = t.querySelector(selector);
+            if (element) {
+                element.innerHTML = html;
+            }
+        };
+        
+        // Update hero elements
+        safeSetText(".intro", e.intro);
+        safeSetText(".title", e.name);
+        safeSetText(".subtitle", e.tagline);
+        safeSetHtml(".description", e.description);
+        
+        // Update CTA button if it exists in this intro
+        const n = t.querySelector(".cta-button");
+        if (n) {
+            n.textContent = e.ctaText;
+            n.href = e.ctaLink;
         }
-    };
-    
-    // Safely set HTML content
-    const safeSetHtml = (selector, html) => {
-        const element = t.querySelector(selector);
-        if (element) {
-            element.innerHTML = html;
-        }
-    };
-    
-    // Update hero elements
-    safeSetText(".intro", e.intro);
-    safeSetText(".title", e.name);
-    safeSetText(".subtitle", e.tagline);
-    safeSetHtml(".description", e.description);
-    
-    // Update CTA button
-    const n = t.querySelector(".cta-button");
-    if (n) {
-        n.textContent = e.ctaText;
-        n.href = e.ctaLink;
-    }
+    });
 }function populateAbout(e){const t=document.getElementById("about");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{const t=document.createElement("p");t.textContent=e,n.appendChild(t)});const a=document.createElement("ul");a.className="skills-list",e.skills.forEach(e=>{const t=document.createElement("li");t.textContent=e,a.appendChild(t)}),n.appendChild(a);const o=document.createElement("p");o.textContent=e.closing,n.appendChild(o)}function populateExperience(e) {
     const t = document.getElementById("experience");
     t.querySelector(".section-title").innerHTML = `<span>${e.number}.</span> ${e.title}`;
@@ -200,34 +204,31 @@ function populateTestimonials(e) {
         const a = document.createElement("div");
         a.className = "testimonial-author";
         
-        const ai = document.createElement("div");
-        ai.className = "testimonial-author-image";
+        // Create minimal author info
+        const authorName = document.createElement("span");
+        authorName.className = "testimonial-author-name";
         
-        if (e.author.image.initials) {
-            const in1 = document.createElement("span");
-            in1.className = "initials";
-            in1.textContent = e.author.image.initials;
-            ai.appendChild(in1);
-        }
+        // Extract first name only
+        const firstName = e.author.name.split(' ')[0];
+        authorName.textContent = firstName;
         
-        a.appendChild(ai);
+        // Add title with separator
+        const authorTitle = document.createElement("span");
+        authorTitle.className = "testimonial-author-title";
+        authorTitle.textContent = e.author.title;
         
-        const ai2 = document.createElement("div");
-        ai2.className = "testimonial-author-info";
+        // Add author information to author div
+        a.appendChild(authorName);
         
-        const an = document.createElement("div");
-        an.className = "testimonial-author-name";
-        an.textContent = e.author.name;
-        ai2.appendChild(an);
+        // Add separator with proper spacing exactly as specified
+        a.appendChild(document.createTextNode("  •  "));
         
-        const at = document.createElement("div");
-        at.className = "testimonial-author-title";
-        at.textContent = e.author.title;
-        ai2.appendChild(at);
+        a.appendChild(authorTitle);
         
-        a.appendChild(ai2);
+        // Add author section to testimonial
         s.appendChild(a);
         
+        // Add testimonial to slider
         n.appendChild(s);
     });
     
@@ -283,6 +284,8 @@ function initializeInteractiveFeatures() {
         const nextButton = document.querySelector(".next-testimonial");
         
         let currentIndex = 0;
+        let autoplayInterval = null;
+        const autoplayDelay = 3500; // 3.5 seconds between transitions
         
         function showTestimonial(index) {
             testimonials.forEach(t => t.classList.remove("active"));
@@ -293,26 +296,75 @@ function initializeInteractiveFeatures() {
             currentIndex = index;
         }
         
+        function nextTestimonial() {
+            let newIndex = currentIndex + 1;
+            if (newIndex >= testimonials.length) newIndex = 0;
+            showTestimonial(newIndex);
+        }
+        
+        function prevTestimonial() {
+            let newIndex = currentIndex - 1;
+            if (newIndex < 0) newIndex = testimonials.length - 1;
+            showTestimonial(newIndex);
+        }
+        
+        // Start autoplay
+        function startAutoplay() {
+            if (autoplayInterval) clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(nextTestimonial, autoplayDelay);
+        }
+        
+        // Stop autoplay
+        function stopAutoplay() {
+            if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+        }
+        
+        // Initialize autoplay
+        startAutoplay();
+        
+        // Pause on hover
+        testimonialsSlider.addEventListener("mouseenter", stopAutoplay);
+        testimonialsSlider.addEventListener("mouseleave", startAutoplay);
+        
+        // Setup navigation buttons
         if (prevButton) {
             prevButton.addEventListener("click", function() {
-                let newIndex = currentIndex - 1;
-                if (newIndex < 0) newIndex = testimonials.length - 1;
-                showTestimonial(newIndex);
+                prevTestimonial();
+                // Reset autoplay timer after manual navigation
+                stopAutoplay();
+                startAutoplay();
             });
         }
         
         if (nextButton) {
             nextButton.addEventListener("click", function() {
-                let newIndex = currentIndex + 1;
-                if (newIndex >= testimonials.length) newIndex = 0;
-                showTestimonial(newIndex);
+                nextTestimonial();
+                // Reset autoplay timer after manual navigation
+                stopAutoplay();
+                startAutoplay();
             });
         }
         
+        // Setup indicator clicks
         indicators.forEach((indicator, index) => {
             indicator.addEventListener("click", function() {
                 showTestimonial(index);
+                // Reset autoplay timer after manual navigation
+                stopAutoplay();
+                startAutoplay();
             });
+        });
+        
+        // Stop autoplay when page is not visible
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
         });
     }
     

@@ -463,6 +463,11 @@ body.reading-mode .reading-mode-toggle i {
     margin: 0 auto;
 }
 
+/* Hide mobile intro by default (only show on small screens) */
+.mobile-intro {
+    display: none;
+}
+
 .profile-intro {
     display: flex;
     flex-direction: column;
@@ -1205,6 +1210,7 @@ body.reading-mode .reading-mode-toggle i {
     position: relative;
     margin: 30px 0;
     overflow: hidden;
+    min-height: 250px; /* Set a minimum height to prevent layout shifts */
 }
 
 .testimonial {
@@ -1212,17 +1218,19 @@ body.reading-mode .reading-mode-toggle i {
     padding: 30px;
     border-radius: var(--border-radius);
     margin: 10px 0;
-    position: relative;
+    position: absolute;
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-    display: none;
+    width: 100%;
     opacity: 0;
-    transform: translateX(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    transform: translateX(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease, visibility 0.6s ease;
 }
 
 .testimonial.active {
-    display: block;
+    position: relative;
     opacity: 1;
+    visibility: visible;
     transform: translateX(0);
 }
 
@@ -1249,40 +1257,18 @@ body.reading-mode .reading-mode-toggle i {
     display: flex;
     align-items: center;
     margin-top: 20px;
-}
-
-.testimonial-author-image {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--navy);
-    margin-right: 15px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.testimonial-author-image .initials {
-    color: var(--lightest-slate);
-    font-weight: bold;
-}
-
-.testimonial-author-info {
-    display: flex;
-    flex-direction: column;
+    font-size: var(--fz-sm);
+    line-height: 1.5;
 }
 
 .testimonial-author-name {
     color: var(--lightest-slate);
     font-weight: 600;
-    font-size: var(--fz-md);
 }
 
 .testimonial-author-title {
     color: var(--cyan);
-    font-size: var(--fz-sm);
-    margin-top: 5px;
+    font-style: italic;
 }
 
 .testimonials-navigation {
@@ -1327,11 +1313,41 @@ body.reading-mode .reading-mode-toggle i {
     background-color: var(--light-navy);
     cursor: pointer;
     transition: var(--transition);
+    position: relative;
 }
 
 .testimonial-indicator.active {
     background-color: var(--cyan);
     transform: scale(1.2);
+}
+
+.testimonial-indicator.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--cyan);
+    opacity: 0.4;
+    transform: scale(1);
+    animation: pulse 3.5s linear infinite; /* Match with autoplayDelay in script.js */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    85% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
 }
 
 footer {
@@ -1547,16 +1563,34 @@ body.nav-open {
         padding: 30px 25px;
     }
     
-    /* Hide the hero content in mobile menu to avoid duplication */
-    .profile-intro {
-        display: none;
-    }
-    
-    /* Add a mobile hero section at the beginning of content */
+    /* Add mobile hero section to the right panel */
     .right-panel::before {
         content: "";
         display: block;
         height: 80px;
+    }
+    
+    /* Create a duplicate of profile-intro for mobile */
+    .right-panel .content::before {
+        content: "";
+        display: block;
+        margin-bottom: 40px;
+    }
+    
+    /* Show mobile intro in smaller screens */
+    .mobile-intro {
+        display: block;
+        margin-bottom: 40px;
+    }
+    
+    .mobile-intro .profile-intro {
+        display: flex;
+        padding: 0 0 30px 0;
+    }
+    
+    /* Hide the left panel profile intro when in mobile */
+    .left-panel .profile-intro {
+        display: none;
     }
     
     .section:first-of-type {

@@ -375,8 +375,8 @@ function loadUserPreferences() {
             document.body.classList.remove("reading-mode");
         }
     } else {
-        // Default to original palette if no saved preferences
-        applyPalette("original");
+        // Default to your preferred palette if no saved preferences
+        applyPalette("warm"); // Available options: warm, neofuture, terminal, creative, original
     }
 }
 

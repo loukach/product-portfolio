@@ -482,6 +482,35 @@ body.reading-mode .reading-mode-toggle i {
     display: none;
 }
 
+/* Mobile profile photo styles */
+.mobile-profile-photo {
+    margin: 40px auto;
+    max-width: 250px;
+    width: 100%;
+}
+
+.mobile-profile-photo .wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--cyan);
+}
+
+.mobile-profile-photo .wrapper::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 2px solid var(--cyan);
+    top: 15px;
+    left: 15px;
+    z-index: -1;
+}
+
 .profile-intro {
     display: flex;
     flex-direction: column;
@@ -734,11 +763,14 @@ body.reading-mode .reading-mode-toggle i {
 @media (max-width:768px) {
     .about-grid {
         grid-template-columns: 1fr;
-      /*  gap: 50px 0 */	
+        gap: 30px 0;
     }
 
     .about-image {
-        margin: 0 auto
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        max-width: 300px;
     }
 
     .skills-list {
@@ -1441,6 +1473,16 @@ html {
     .degree {
         font-size: var(--fz-md)
     }
+
+    /* Fix equal margins on mobile */
+    .right-panel {
+        padding: 5rem 20px;
+    }
+
+    .content {
+        padding: 0;
+        margin: 0 auto;
+    }
 }
 
 .scroll-to-top {
@@ -1526,11 +1568,11 @@ body.nav-open {
     :root {
         --split-ratio: 0%;
     }
-    
+
     .split-layout {
         flex-direction: column;
     }
-    
+
     .left-panel {
         position: fixed;
         width: 100%;
@@ -1540,72 +1582,95 @@ body.nav-open {
         padding: 5rem;
         z-index: 20;
     }
-    
+
     .left-panel.active {
         transform: translateX(0);
     }
-    
+
     .right-panel {
         width: 100%;
         margin-left: 0;
     }
-    
+
     .profile-section {
         align-items: flex-start;
     }
-    
+
     /* Social links are already in row for all screen sizes */
-    
+
     .nav-toggle {
         display: block;
         top: 20px;
         right: 20px;
     }
-    
+
     .reading-mode-toggle {
         right: 120px;
     }
-    
+
     .palette-selector {
         right: 70px;
     }
-    
+
     .content {
         padding: 30px 25px;
     }
-    
+
     /* Add mobile hero section to the right panel */
     .right-panel::before {
         content: "";
         display: block;
         height: 80px;
     }
-    
+
     /* Create a duplicate of profile-intro for mobile */
     .right-panel .content::before {
         content: "";
         display: block;
         margin-bottom: 40px;
     }
-    
+
     /* Show mobile intro in smaller screens */
     .mobile-intro {
         display: block;
         margin-bottom: 40px;
     }
-    
+
     .mobile-intro .profile-intro {
         display: flex;
-        padding: 0 0 30px 0;
+        padding: 0 0 10px 0;
     }
-    
+
+    /* Ensure mobile profile photo displays properly */
+    .mobile-profile-photo {
+        display: block;
+        margin: 30px auto;
+    }
+
+    /* Hide profile photo in About section on mobile */
+    #about .about-image {
+        display: none;
+    }
+
     /* Hide the left panel profile intro when in mobile */
     .left-panel .profile-intro {
         display: none;
     }
-    
+
     .section:first-of-type {
         padding-top: 20px;
+    }
+
+    /* Fix profile image visibility on mobile */
+    .profile-img-container {
+        position: relative;
+        display: block;
+    }
+
+    .profile-img-container .profile-photo {
+        position: relative;
+        display: block;
+        margin: 0 auto;
     }
 }
 

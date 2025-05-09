@@ -25,8 +25,8 @@
   "hero": {
     "intro": "Hi, my name is",
     "name": "Lucas Gros.",
-    "tagline": "I navigate product challenges in uncharted waters.",
-    "description": "I'm a product manager specialized in creating bold solutions that drive business impact. Currently focused on AI implementation and transformation at <a href='#'>Motork</a>, where our vehicle management app achieved 10x revenue growth YoY.",
+    "tagline": "I navigate product challenges in ==uncharted waters==.",
+    "description": "I'm a product manager specialized in creating ==bold solutions== that drive business impact. Currently focused on using ==AI to supercharge== our product & accelerate our lead time. For example, at <a href='#experience'>Motork</a> our vehicle management app achieved ==10x revenue growth== YoY.",
     "ctaText": "Learn More About Me",
     "ctaLink": "#about"
   },
@@ -34,15 +34,15 @@
     "title": "About Me",
     "number": "01",
     "paragraphs": [
-      "I thrive when facing unexpected challenges and venturing into uncharted territory. My engineering background combined with neverending curiosity and total ownership enable me to make things happen.",
-      "Creativity in my blood - I shine when creating more than fine-tuning. I craft POCs to reduce risks and sell ideas, break down complex problems into smaller milestones, and build bridges between stakeholders to deliver - from inception to ROI.",
-      "With experience across 7 European markets and versatility from ideation to maintenance, I've consistently delivered results that matter:"
+      "I thrive when facing ==unexpected challenges== and venturing into uncharted territory. My engineering background combined with ==neverending curiosity== and total ownership enable me to make things happen.",
+      "With creativity in the blood, I shine when ==creating more than fine-tuning==. I craft POCs to reduce risks and sell ideas, break down complex problems into smaller milestones, and build bridges between stakeholders to deliver - from inception to ROI.",
+      "With experience across ==7 European markets== and versatility from ideation to maintenance, I've consistently delivered results that matter:"
     ],
     "skills": [
-      "Transforming ideas into tangible products through rapid prototyping",
-      "Building connections between technical teams and business stakeholders",
-      "Using data to inform decisions and demonstrate product vision",
-      "Managing roadmaps for teams responsible for significant revenue"
+      "Transforming ideas into tangible products through ==rapid prototyping==",
+      "Building connections between ==technical teams and business stakeholders==",
+      "Using ==data to inform decisions== and demonstrate product vision",
+      "Managing roadmaps for teams responsible for ==significant revenue=="
     ],
     "closing": "When I'm not building products, I dive into nature - hiking, running, swimming, sailing, crawling, flying - where complexity and simplicity blend in such an amazing way."
   },
@@ -58,9 +58,9 @@
         "url": "https://motork.io",
         "period": "September 2022 - Present",
         "description": [
-          "Managed roadmap for 2 teams responsible for 70% of product revenue",
-          "Transformed vehicle management app into a profit center with 10x revenue YoY",
-          "Delivered AI capabilities that reduced dealers' time-to-market from 30 min to 5 minutes",
+          "Managed roadmap for 2 teams responsible for ==70% of product revenue==",
+          "Transformed vehicle management app into a profit center with ==10x revenue YoY==",
+          "Delivered ==AI capabilities== that reduced dealers' time-to-market from 30 min to ==5 minutes==",
           "Expanded product offering to 4 additional European markets",
           "Built POCs with Claude Code, Lovable, n8n and other tools to demonstrate product vision"
         ]
@@ -74,9 +74,9 @@
         "period": "December 2024 - Present",
         "type": "Volunteering",
         "description": [
-          "Designed conversational agent to help volunteers find opportunities aligned with their interests",
-          "Built solutions using WordPress, Claude Code, Gemini Flash 2.5 and LangChain/Smith",
-          "Created platform that connects volunteers with meaningful opportunities"
+          "Designed ==conversational agent== to help volunteers find opportunities aligned with their interests",
+          "Built solutions using WordPress, Claude Code, ==Gemini Flash 2.5== and LangChain/Smith",
+          "Created platform that connects volunteers with ==meaningful opportunities=="
         ]
       },
       {
@@ -87,9 +87,9 @@
         "url": "https://feedzai.com",
         "period": "July 2019 - August 2022",
         "description": [
-          "Enabled scaling by making financial risk management products more self-serviceable",
+          "Enabled ==scaling== by making financial risk management products more ==self-serviceable==",
           "Implemented usability improvements and enhanced user management capabilities",
-          "Designed, tested & deployed risk management strategies"
+          "Designed, tested & deployed ==risk management strategies=="
         ]
       },
       {
@@ -100,7 +100,7 @@
         "url": "#",
         "period": "October 2017 - July 2019",
         "description": [
-          "Defined and implemented secure development policies and standards",
+          "Defined and implemented ==secure development policies== and standards",
           "Assessed software portfolio security, identified vulnerabilities & implemented mitigation plans",
           "Automated build & deploy pipelines and security checkpoints",
           "Trained teams in security by design tools & techniques"
@@ -114,9 +114,9 @@
         "url": "#",
         "period": "October 2016 - December 2018",
         "description": [
-          "Drove AI-based fashion trend prediction system with data scientists and fashion experts",
+          "Drove ==AI-based fashion trend prediction== system with data scientists and fashion experts",
           "Evangelized customer emotional profiling at major retail events",
-          "Set up AI-based services for personalized marketing that helped retailers align products with consumer preferences"
+          "Set up AI-based services for ==personalized marketing== that helped retailers align products with consumer preferences"
         ]
       },
       {
@@ -127,8 +127,8 @@
         "url": "#",
         "period": "June 2011 - December 2012",
         "description": [
-          "Implemented a product management strategy inspired by Zara's \"pull\" system",
-          "Reduced commercial rents (-15%) & operational costs, personnel (-30%)",
+          "Implemented a product management strategy inspired by ==Zara's \"pull\" system==",
+          "Reduced commercial rents (-15%) & operational costs, personnel (==-30%==)",
           "Tested new products and markets",
           "Gained exposure to project management methodologies and practices"
         ]
@@ -141,9 +141,9 @@
         "url": "#",
         "period": "January 2009 - September 2016 (Fractional)",
         "description": [
-          "Led commercial diagnostics, IT nearshoring PMO, and strategic planning projects at EUROGROUP",
+          "Led commercial diagnostics, IT nearshoring PMO, and ==strategic planning== projects at EUROGROUP",
           "Managed technical initiatives including Unified Communications RFP and data networks at Solucom",
-          "Operated remotely from São Paulo for 9 months, demonstrating autonomy while conducting field work"
+          "Operated ==remotely from São Paulo== for 9 months, demonstrating autonomy while conducting field work"
         ]
       }
     ]
@@ -155,7 +155,7 @@
       {
         "featured": true,
         "title": "AI Background Removal",
-        "description": "Developed automated background removal solution for 400+ automotive dealers across Europe. This AI implementation reduced processing time from 30 minutes to 5 minutes per vehicle, enabling dealers to list inventory faster and improve visual presentation without specialized skills.",
+        "description": "Developed ==automated background removal== solution for 400+ automotive dealers across Europe. This ==AI implementation== reduced processing time from 30 minutes to ==5 minutes per vehicle==, enabling dealers to list inventory faster and improve visual presentation without specialized skills.",
         "technologies": ["AI image processing", "mobile application integration"],
         "links": [
           { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
@@ -165,7 +165,7 @@
       {
         "featured": true,
         "title": "Conversational Agent for Volunteering",
-        "description": "Created an AI assistant that helps volunteers find opportunities matching their interests and availability. The conversational interface makes the matching process more engaging and personalized compared to traditional search interfaces.",
+        "description": "Created an ==AI assistant== that helps volunteers find opportunities matching their interests and availability. The ==conversational interface== makes the matching process more engaging and ==personalized== compared to traditional search interfaces.",
         "technologies": ["LangChain", "Claude", "Gemini", "WordPress"],
         "links": [
           { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
@@ -175,7 +175,7 @@
       {
         "featured": true,
         "title": "Next-Gen UX for Stock Management",
-        "description": "Built proof-of-concept for a conversational interface to manage automotive inventory, teaching AI agents to handle stock management through natural language. This transformed a complex, form-heavy process into an intuitive conversation.",
+        "description": "Built ==proof-of-concept== for a conversational interface to manage automotive inventory, teaching ==AI agents== to handle stock management through natural language. This transformed a complex, form-heavy process into an ==intuitive conversation==.",
         "technologies": ["Claude Code", "n8n", "Zapier"],
         "links": [
           { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
@@ -189,7 +189,7 @@
     "number": "04",
     "items": [
       {
-        "content": "Having Lucas on the team has not only enabled us to deliver features but also to generate substantial value and revenue for SSK. His advocacy for value generation has been instrumental in our success.",
+        "content": "Having Lucas on the team has not only enabled us to deliver features but also to generate ==substantial value and revenue== for SSK. His advocacy for ==value generation== has been instrumental in our success.",
         "author": {
           "name": "Barbara",
           "title": "Head of Product at MotorK",
@@ -199,7 +199,7 @@
         }
       },
       {
-        "content": "Lucas stands out for his operational excellence. He's dedicated to quickly and efficiently solving problems with smart solutions. His knack for critical thinking, adept questioning, and relentless pursuit of the best outcomes make him a standout among his colleagues.",
+        "content": "Lucas stands out for his ==operational excellence==. He's dedicated to quickly and efficiently solving problems with smart solutions. His knack for ==critical thinking==, adept questioning, and relentless pursuit of the best outcomes make him a standout among his colleagues.",
         "author": {
           "name": "Barbara",
           "title": "Head of Product at MotorK",
@@ -209,7 +209,7 @@
         }
       },
       {
-        "content": "Lucas came and out of the bat tried to make a difference in a subtle way. He is commended for his knowledge of product practices, cleverness, curiosity, and keen thinking process. He is able to challenge, push and promote without being seen as 'pushy'.",
+        "content": "Lucas came and out of the bat tried to make a difference in a subtle way. He is commended for his knowledge of product practices, ==cleverness, curiosity, and keen thinking process==. He is able to challenge, push and promote without being seen as 'pushy'.",
         "author": {
           "name": "Miguel",
           "title": "Head of Product at MotorK",
@@ -219,7 +219,7 @@
         }
       },
       {
-        "content": "Lukas has done a great job within the SSK team to complete multiple initiatives and solve large challenges within the platform. His work was organized well for all the project stakeholders and major elements of projects were documented well.",
+        "content": "Lukas has done a great job within the SSK team to complete multiple initiatives and ==solve large challenges== within the platform. His work was organized well for all the project stakeholders and major elements of projects were documented well.",
         "author": {
           "name": "Kevin",
           "title": "CPO at MotorK",
@@ -229,7 +229,7 @@
         }
       },
       {
-        "content": "Working with Lucas is a continuous opportunity for professional growth, thanks to his critical thinking and ability to provide constructive feedback that improves the team's collective work. His contribution to the team is essential, and I consider him a highly valuable asset.",
+        "content": "Working with Lucas is a continuous opportunity for ==professional growth==, thanks to his critical thinking and ability to provide constructive feedback that improves the team's collective work. His contribution to the team is essential, and I consider him a highly valuable asset.",
         "author": {
           "name": "Mario",
           "title": "Senior Product Designer at MotorK",
@@ -239,7 +239,7 @@
         }
       },
       {
-        "content": "Lucas is straightforward, thoughtful, committed and efficient. Having him onboard ensures the job gets done fast and secure. Curious about new approaches and way of doing things, he is the right person for performing in depth analysis and building creative solutions.",
+        "content": "Lucas is straightforward, thoughtful, committed and efficient. Having him onboard ensures the job gets done ==fast and secure==. Curious about new approaches and way of doing things, he is the right person for performing ==in depth analysis== and building creative solutions.",
         "author": {
           "name": "Laetitia",
           "title": "Manager @ Eurogroup Consulting Portugal | Director at B Lab Portugal",
@@ -249,7 +249,7 @@
         }
       },
       {
-        "content": "His sharp commercial sense with focus on customer needs and value delivered to them has always permitted us to tailor win-win solutions for all stake holders. He has strong, unshakable values anchored in responsibility, rigour and perseverance. A true gem.",
+        "content": "His ==sharp commercial sense== with focus on customer needs and value delivered to them has always permitted us to tailor win-win solutions for all stake holders. He has strong, unshakable values anchored in responsibility, rigour and perseverance. A true gem.",
         "author": {
           "name": "Anchal",
           "title": "Founder of Trenspott | Faculty Co-Chair at IIM Ahmedabad",
@@ -259,7 +259,7 @@
         }
       },
       {
-        "content": "Lucas is above all a great strategic thinker with a pragmatic and assertive problem-solving approach. Not only is he independent and chases after his dreams and goals, he has an open spirit and is a fantastic motivator and team member; he teaches, delegates and delivers.",
+        "content": "Lucas is above all a ==great strategic thinker== with a pragmatic and assertive problem-solving approach. Not only is he independent and chases after his dreams and goals, he has an open spirit and is a fantastic motivator and team member; he teaches, delegates and delivers.",
         "author": {
           "name": "Filipa",
           "title": "Senior Manager at EUROGROUP CONSULTING",
@@ -269,7 +269,7 @@
         }
       },
       {
-        "content": "He is someone who has very good sense of responsibility, he is absolutely reliable (does not let you down as regards deadlines), technically sound, and with good client communication and relationship skills.",
+        "content": "He is someone who has very good sense of responsibility, he is ==absolutely reliable== (does not let you down as regards deadlines), technically sound, and with good client communication and relationship skills.",
         "author": {
           "name": "José",
           "title": "Senior Advisor at EUROGROUP CONSULTING",

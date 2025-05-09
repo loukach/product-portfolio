@@ -35,7 +35,16 @@ const c=new IntersectionObserver(e=>{
 },{root:null, rootMargin:"0px", threshold:[0.1, 0.2, 0.3, 0.4, 0.5]});document.querySelectorAll(".section").forEach(e=>{c.observe(e)}),window.addEventListener("scroll",()=>{i()});const l=document.querySelector(".contact-button");if(l){const e=["your-email","example.com"],t=e[0]+"[at]"+e[1];l.setAttribute("href","mailto:"+t),l.addEventListener("click",function(t){this.setAttribute("href","mailto:"+e[0]+"@"+e[1])})}document.querySelector(".section")&&document.querySelector(".section").classList.add("active")});
 
 // Content Loader - Minified
-async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)throw new Error(`HTTP error! Status: ${e.status}`);const t=await e.json();populateContent(t)}catch(e){console.error("Error loading content:",e)}}function populateContent(e){populateMetadata(e.meta),populateNavigation(e.navigation),populateHero(e.hero),populateAbout(e.about),populateExperience(e.experience),populateProjects(e.projects),populateTestimonials(e.testimonials),populateSkills(e.skills),populateFooter(e.footer),initializeInteractiveFeatures()}function populateMetadata(e){
+async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)throw new Error(`HTTP error! Status: ${e.status}`);const t=await e.json();populateContent(t)}catch(e){console.error("Error loading content:",e)}}function populateContent(e){populateMetadata(e.meta),populateNavigation(e.navigation),populateHero(e.hero),populateAbout(e.about),populateExperience(e.experience),populateProjects(e.projects),populateTestimonials(e.testimonials),populateSkills(e.skills),populateFooter(e.footer),initializeInteractiveFeatures()}
+
+// Process text with markdown-style highlighting
+function parseHighlightMarkdown(text) {
+    if (!text) return text;
+
+    // Replace ==highlighted text== with <span class="highlight">highlighted text</span>
+    // The regex looks for == followed by anything (non-greedy) until another ==
+    return text.replace(/==([^=]+)==/g, '<span class="highlight">$1</span>');
+}function populateMetadata(e){
     // Set document title
     document.title = e.title;
     
@@ -94,10 +103,10 @@ async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)th
 }function populateHero(e){
     // Populate all profile-intro sections (desktop in left panel and mobile in right panel)
     const profileIntros = document.querySelectorAll(".profile-intro");
-    
+
     profileIntros.forEach(t => {
         if (!t) return; // Skip if element doesn't exist
-        
+
         // Safely set text content
         const safeSetText = (selector, text) => {
             const element = t.querySelector(selector);
@@ -105,7 +114,7 @@ async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)th
                 element.textContent = text;
             }
         };
-        
+
         // Safely set HTML content
         const safeSetHtml = (selector, html) => {
             const element = t.querySelector(selector);
@@ -113,13 +122,13 @@ async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)th
                 element.innerHTML = html;
             }
         };
-        
+
         // Update hero elements
         safeSetText(".intro", e.intro);
         safeSetText(".title", e.name);
-        safeSetText(".subtitle", e.tagline);
-        safeSetHtml(".description", e.description);
-        
+        safeSetHtml(".subtitle", parseHighlightMarkdown(e.tagline));
+        safeSetHtml(".description", parseHighlightMarkdown(e.description));
+
         // Update CTA button if it exists in this intro
         const n = t.querySelector(".cta-button");
         if (n) {
@@ -128,7 +137,7 @@ async function loadContent(){try{const e=await fetch("content.json");if(!e.ok)th
         }
     });
 }function populateAbout(e){const t=document.getElementById("about");t.querySelector(".section-title").style.display = "none"; // Hide the "About Me" title
-const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{const t=document.createElement("p");t.textContent=e,n.appendChild(t)});const a=document.createElement("ul");a.className="skills-list",e.skills.forEach(e=>{const t=document.createElement("li");t.textContent=e,a.appendChild(t)}),n.appendChild(a);const o=document.createElement("p");o.textContent=e.closing,n.appendChild(o)}function populateExperience(e) {
+const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{const t=document.createElement("p");t.innerHTML=parseHighlightMarkdown(e),n.appendChild(t)});const a=document.createElement("ul");a.className="skills-list",e.skills.forEach(e=>{const t=document.createElement("li");t.innerHTML=parseHighlightMarkdown(e),a.appendChild(t)}),n.appendChild(a);const o=document.createElement("p");o.innerHTML=parseHighlightMarkdown(e.closing),n.appendChild(o)}function populateExperience(e) {
     const t = document.getElementById("experience");
     t.querySelector(".section-title").innerHTML = `${e.title}`;
 
@@ -199,7 +208,7 @@ const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{c
         // Add description items
         job.description.forEach(item => {
             const li = document.createElement("li");
-            li.textContent = item;
+            li.innerHTML = parseHighlightMarkdown(item);
             description.appendChild(li);
         });
         
@@ -218,7 +227,7 @@ const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{c
             card.classList.toggle("expanded");
         });
     });
-}function populateProjects(e){const t=document.getElementById("projects");t.querySelector(".section-title").innerHTML=`${e.title}`;const n=t.querySelector(".projects-grid");n.innerHTML="",e.items.forEach(e=>{const t=document.createElement("div");t.className="project-card";const a=document.createElement("div");a.className="project-content";const o=document.createElement("div");o.className="project-overline",o.textContent="Featured Project",a.appendChild(o);const c=document.createElement("h3");c.className="project-title",c.textContent=e.title,a.appendChild(c);const i=document.createElement("div");i.className="project-description";const r=document.createElement("p");r.textContent=e.description,i.appendChild(r),a.appendChild(i);const l=document.createElement("ul");l.className="project-tech-list",e.technologies.forEach(e=>{const t=document.createElement("li");t.textContent=e,l.appendChild(t)}),a.appendChild(l);const s=document.createElement("div");s.className="project-links",e.links.forEach(e=>{const t=document.createElement("a");t.href=e.url,t.setAttribute("aria-label",e.label);const n=document.createElement("i");n.className=e.icon,t.appendChild(n),s.appendChild(t)}),a.appendChild(s),t.appendChild(a);const d=document.createElement("div");d.className="project-image";const m=document.createElement("div");m.className="image-placeholder";const p=document.createElement("i");p.className=e.image.placeholder,m.appendChild(p),d.appendChild(m),t.appendChild(d),n.appendChild(t)})}function populateSkills(e){const t=document.getElementById("skills");t.querySelector(".section-title").innerHTML=`${e.title}`;const n=t.querySelector(".skills-container");n.innerHTML="",e.categories.forEach(e=>{const t=document.createElement("div");t.className="skills-category";const a=document.createElement("h3");a.className="category-title",a.textContent=e.name,t.appendChild(a);const o=document.createElement("ul");o.className="skills-category-list",e.items.forEach(e=>{const t=document.createElement("li");t.textContent=e,o.appendChild(t)}),t.appendChild(o),n.appendChild(t)})}function populateEducation(e){const t=document.getElementById("education");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".education-list");n.innerHTML="",e.schools.forEach(e=>{const t=document.createElement("div");t.className="education-item";const a=document.createElement("h3");a.className="school-name",a.textContent=e.name,t.appendChild(a);const o=document.createElement("div");o.className="degree",o.textContent=e.degree,t.appendChild(o);const c=document.createElement("div");c.className="education-year-location",c.textContent=`${e.period}, ${e.location}`,t.appendChild(c),n.appendChild(t)})}function populateContact(e){const t=document.getElementById("contact");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".contact-content"),a=n.querySelectorAll(".contact-text");a.forEach(e=>e.remove()),e.paragraphs.forEach(e=>{const t=document.createElement("p");t.className="contact-text",t.textContent=e,n.insertBefore(t,n.querySelector(".contact-button"))});const o=n.querySelector(".contact-button");o.textContent=e.ctaText;const c=[e.email.user,e.email.domain],i=c[0]+"@"+c[1];o.setAttribute("href","mailto:"+i)}function populateFooter(e){const t=document.querySelector("footer");t.innerHTML="";const n=document.createElement("p"),a=document.createElement("a");a.href=e.designCredit.url,a.target="_blank",a.rel="noopener noreferrer",a.textContent=e.designCredit.name,n.textContent=e.designCredit.text+" ",n.appendChild(a),t.appendChild(n);const o=document.createElement("p"),c=document.createElement("a");c.href=e.toolCredit.url,c.target="_blank",c.rel="noopener noreferrer",c.textContent=e.toolCredit.name,o.textContent=e.toolCredit.text+" ",o.appendChild(c),t.appendChild(o);const i=document.createElement("p");i.className="copyright",i.textContent=e.copyright,t.appendChild(i)}
+}function populateProjects(e){const t=document.getElementById("projects");t.querySelector(".section-title").innerHTML=`${e.title}`;const n=t.querySelector(".projects-grid");n.innerHTML="",e.items.forEach(e=>{const t=document.createElement("div");t.className="project-card";const a=document.createElement("div");a.className="project-content";const o=document.createElement("div");o.className="project-overline",o.textContent="Featured Project",a.appendChild(o);const c=document.createElement("h3");c.className="project-title",c.textContent=e.title,a.appendChild(c);const i=document.createElement("div");i.className="project-description";const r=document.createElement("p");r.innerHTML=parseHighlightMarkdown(e.description),i.appendChild(r),a.appendChild(i);const l=document.createElement("ul");l.className="project-tech-list",e.technologies.forEach(e=>{const t=document.createElement("li");t.textContent=e,l.appendChild(t)}),a.appendChild(l);const s=document.createElement("div");s.className="project-links",e.links.forEach(e=>{const t=document.createElement("a");t.href=e.url,t.setAttribute("aria-label",e.label);const n=document.createElement("i");n.className=e.icon,t.appendChild(n),s.appendChild(t)}),a.appendChild(s),t.appendChild(a);const d=document.createElement("div");d.className="project-image";const m=document.createElement("div");m.className="image-placeholder";const p=document.createElement("i");p.className=e.image.placeholder,m.appendChild(p),d.appendChild(m),t.appendChild(d),n.appendChild(t)})}function populateSkills(e){const t=document.getElementById("skills");t.querySelector(".section-title").innerHTML=`${e.title}`;const n=t.querySelector(".skills-container");n.innerHTML="",e.categories.forEach(e=>{const t=document.createElement("div");t.className="skills-category";const a=document.createElement("h3");a.className="category-title",a.textContent=e.name,t.appendChild(a);const o=document.createElement("ul");o.className="skills-category-list",e.items.forEach(e=>{const t=document.createElement("li");t.innerHTML=parseHighlightMarkdown(e),o.appendChild(t)}),t.appendChild(o),n.appendChild(t)})}function populateEducation(e){const t=document.getElementById("education");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".education-list");n.innerHTML="",e.schools.forEach(e=>{const t=document.createElement("div");t.className="education-item";const a=document.createElement("h3");a.className="school-name",a.textContent=e.name,t.appendChild(a);const o=document.createElement("div");o.className="degree",o.textContent=e.degree,t.appendChild(o);const c=document.createElement("div");c.className="education-year-location",c.textContent=`${e.period}, ${e.location}`,t.appendChild(c),n.appendChild(t)})}function populateContact(e){const t=document.getElementById("contact");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".contact-content"),a=n.querySelectorAll(".contact-text");a.forEach(e=>e.remove()),e.paragraphs.forEach(e=>{const t=document.createElement("p");t.className="contact-text",t.innerHTML=parseHighlightMarkdown(e),n.insertBefore(t,n.querySelector(".contact-button"))});const o=n.querySelector(".contact-button");o.textContent=e.ctaText;const c=[e.email.user,e.email.domain],i=c[0]+"@"+c[1];o.setAttribute("href","mailto:"+i)}function populateFooter(e){const t=document.querySelector("footer");t.innerHTML="";const n=document.createElement("p"),a=document.createElement("a");a.href=e.designCredit.url,a.target="_blank",a.rel="noopener noreferrer",a.textContent=e.designCredit.name,n.textContent=e.designCredit.text+" ",n.appendChild(a),t.appendChild(n);const o=document.createElement("p"),c=document.createElement("a");c.href=e.toolCredit.url,c.target="_blank",c.rel="noopener noreferrer",c.textContent=e.toolCredit.name,o.textContent=e.toolCredit.text+" ",o.appendChild(c),t.appendChild(o);const i=document.createElement("p");i.className="copyright",i.textContent=e.copyright,t.appendChild(i)}
 
 // Populate testimonials section
 function populateTestimonials(e) {
@@ -235,7 +244,7 @@ function populateTestimonials(e) {
         
         const c = document.createElement("div");
         c.className = "testimonial-content";
-        c.textContent = e.content;
+        c.innerHTML = parseHighlightMarkdown(e.content);
         s.appendChild(c);
         
         const a = document.createElement("div");
@@ -252,7 +261,7 @@ function populateTestimonials(e) {
         // Add title with separator
         const authorTitle = document.createElement("span");
         authorTitle.className = "testimonial-author-title";
-        authorTitle.textContent = e.author.title;
+        authorTitle.innerHTML = parseHighlightMarkdown(e.author.title);
         
         // Add author information to author div
         a.appendChild(authorName);
@@ -480,32 +489,34 @@ function initializePaletteSelector() {
 function applyPalette(palette) {
     // Reference to document root for CSS variables
     const root = document.documentElement;
-    
+
     // Store the current palette name as a data attribute for reference
     document.body.setAttribute("data-palette", palette);
-    
+
     // Check if we're in dark or light mode currently
     const isLightMode = document.body.classList.contains("reading-mode");
     const mode = isLightMode ? "light" : "dark";
-    
+
     // Update CSS variables based on palette and mode
     // Main Background
     root.style.setProperty('--navy', `var(--palette-${palette}-${mode}-bg)`);
-    
+
     // Card Background
     root.style.setProperty('--light-navy', `var(--palette-${palette}-${mode}-card)`);
-    
+
     // Accent Color
     root.style.setProperty('--cyan', `var(--palette-${palette}-${mode}-accent)`);
-    
+    root.style.setProperty('--cyan-rgb', `var(--palette-${palette}-${mode}-accent-rgb)`);
+
     // Text Colors
     root.style.setProperty('--lightest-slate', `var(--palette-${palette}-${mode}-text)`);
     root.style.setProperty('--slate', `var(--palette-${palette}-${mode}-text-secondary)`);
-    
+
     // Light Mode Variables (for toggling)
     root.style.setProperty('--light-bg', `var(--palette-${palette}-light-bg)`);
     root.style.setProperty('--light-secondary', `var(--palette-${palette}-light-card)`);
     root.style.setProperty('--light-accent', `var(--palette-${palette}-light-accent)`);
+    root.style.setProperty('--light-accent-rgb', `var(--palette-${palette}-light-accent-rgb)`);
     root.style.setProperty('--light-text', `var(--palette-${palette}-light-text)`);
     root.style.setProperty('--light-text-secondary', `var(--palette-${palette}-light-text-secondary)`);
     

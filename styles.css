@@ -198,10 +198,9 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 40px;
+    padding: 5rem 0 5rem 10rem;
     box-sizing: border-box;
     z-index: 10;
-    border-right: 1px solid var(--light-navy);
     overflow: hidden;
 }
 
@@ -209,6 +208,7 @@ section {
     width: var(--right-panel-width);
     margin-left: var(--left-panel-width);
     min-height: 100vh;
+    padding: 5rem 10rem 5rem 0;
 }
 
 .profile-section {
@@ -1537,7 +1537,7 @@ body.nav-open {
         height: 100vh;
         transform: translateX(-100%);
         transition: var(--transition);
-        padding: 50px 40px;
+        padding: 5rem;
         z-index: 20;
     }
     

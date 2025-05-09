@@ -513,7 +513,7 @@ function loadUserPreferences() {
         }
     } else {
         // Default to your preferred palette if no saved preferences
-        applyPalette("neofuture"); // Available options: warm, neofuture, terminal, creative, original
+        applyPalette("creative"); // Available options: warm, neofuture, terminal, creative, original
     }
 }
 

@@ -105,6 +105,8 @@ For structure changes:
 - Follow the established naming conventions
 - Keep responsive breakpoints consistent
 - Test any style changes across multiple screen sizes
+- Project cards alternate between left and right alignment with colored borders
+- Project images use larger sizes with improved spacing for better visibility
 
 ## JavaScript Guidelines
 
@@ -136,10 +138,12 @@ Image recommendations:
 - Consider using static images for mobile optimization
 
 Enhanced features:
+- Project cards alternate between left and right alignment with accent-colored borders
 - Animated GIFs are automatically detected and given special styling treatment
 - Images scale up slightly on hover for a more engaging experience
-- Minimum height is enforced for visual consistency
-- Mobile versions are optimized with adjusted dimensions
+- Large, prominent project images with minimum heights of 500px for better visibility
+- Mobile versions are optimized with centered cards and adjusted dimensions
+- Technology tags feature subtle backgrounds for improved readability
 
 Project image naming convention:
 - background-removal.jpg - For the AI Background Removal project

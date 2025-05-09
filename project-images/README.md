@@ -5,4 +5,4 @@ Place your project images in this directory with the following names:
 - volunteer-agent.jpg - For the Conversational Agent for Volunteering project
 - stock-management.jpg - For the Next-Gen UX for Stock Management project
 
-Each image should ideally have a 16:9 aspect ratio for best display in the project cards.
+Images will be displayed with a minimum height of 500px for regular images and animated GIFs to ensure good visibility on the project cards. The project cards now alternate between left and right alignment for a visually dynamic layout.

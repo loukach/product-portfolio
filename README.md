@@ -18,7 +18,7 @@ This is a responsive, single-page portfolio website with a dark theme inspired b
 - Fixed side navigation that highlights the current section
 - Animated hero section with staggered fade-ins
 - Foldable cards for the experience section with expand/collapse functionality
-- Project showcase with alternating layout, image support, and animated GIF capabilities
+- Project showcase with alternating left-right layout, large images, and animated GIF capabilities
 - Skills section organized by categories
 - Education timeline
 - Contact section with email protection

@@ -187,8 +187,12 @@ a:hover {
 
 section {
     margin: 0 auto;
-    padding: 60px 0;
-    max-width: 1000px
+    padding: 40px 0;
+    max-width: 1400px /* Increased max-width for wider sections */
+}
+
+#about.section {
+    padding-top: 0;
 }
 
 /* Split Screen Layout */
@@ -686,17 +690,19 @@ body.reading-mode .highlight {
 }
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-/*    gap: 50px */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .about-text {
-    color: var(--slate)
+    color: var(--slate);
+    width: 100%;
+    margin-top: 20px;
 }
 
 .about-text p {
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
 
 .skills-list {
@@ -706,7 +712,7 @@ body.reading-mode .highlight {
     padding: 0;
     margin: 20px 0 30px;
     overflow: hidden;
-    list-style: none
+    list-style: none;
 }
 
 .skills-list li {
@@ -728,7 +734,10 @@ body.reading-mode .highlight {
 
 .about-image {
     position: relative;
-    max-width: 300px
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    align-self: flex-start;
 }
 
 .about-image .wrapper {
@@ -776,14 +785,14 @@ body.reading-mode .highlight {
     border-radius: var(--border-radius);
     transition: var(--transition);
     border: 2px solid var(--cyan);
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     z-index: -1
 }
 
 .about-image:hover .wrapper::before {
-    top: 15px;
-    left: 15px
+    top: 8px;
+    left: 8px
 }
 
 .about-image:hover .profile-img-container {
@@ -792,15 +801,15 @@ body.reading-mode .highlight {
 
 @media (max-width:768px) {
     .about-grid {
-        grid-template-columns: 1fr;
-        gap: 30px 0;
+        display: block;
+    }
+
+    .about-text {
+        width: 100%;
     }
 
     .about-image {
-        margin: 0 auto;
-        display: block;
-        width: 100%;
-        max-width: 300px;
+        display: none;
     }
 
     .skills-list {
@@ -993,55 +1002,75 @@ body.reading-mode .highlight {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 80px;
-    margin-top: 40px
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 30px;
+    width: 100%
 }
 
 .project-card {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    align-items: center
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 80%; /* Take 80% of the section width */
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px -15px rgba(2, 12, 27, 0.5);
+    border-radius: var(--border-radius);
+    background-color: var(--light-navy);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: flex-start; /* Default to left alignment */
 }
 
-.project-card:nth-of-type(even) .project-content {
-    grid-column: 7 / -1;
-    text-align: right
+/* Every even project card aligns to the right */
+.project-card:nth-of-type(even) {
+    align-self: flex-end;
+    border-left: 4px solid var(--cyan);
 }
 
-.project-card:nth-of-type(even) .project-image {
-    grid-column: 1 / 8
+/* Every odd project card has a border on the right */
+.project-card:nth-of-type(odd) {
+    border-right: 4px solid var(--cyan);
 }
 
-.project-card:nth-of-type(even) .project-tech-list {
-    justify-content: flex-end
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px rgba(2, 12, 27, 0.7);
 }
 
-.project-card:nth-of-type(even) .project-links {
-    justify-content: flex-end
+/* New inline image styling */
+.project-image-inline {
+    margin: 20px 0 25px 0;
+    width: 100%;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    max-height: 650px; /* Increased maximum height for larger images */
 }
 
 .project-content {
     position: relative;
-    grid-column: 1 / 8;
-    grid-row: 1 / -1;
-    z-index: 2
+    width: 100%;
+    z-index: 2;
 }
 
 .project-overline {
-    margin: 10px 0;
+    margin: 10px 0 10px 0;
     color: var(--cyan);
     font-family: var(--font-mono);
-    font-size: var(--fz-xs);
-    font-weight: 400
+    font-size: var(--fz-md); /* Increased from xs to md */
+    font-weight: 400;
+    text-transform: uppercase; /* Added uppercase */
+    letter-spacing: 1px; /* Added letter spacing */
 }
 
 .project-title {
     color: var(--lightest-slate);
-    font-size: clamp(24px, 5vw, 28px);
-    margin-bottom: 20px
+    font-size: clamp(28px, 5vw, 36px); /* Increased font size */
+    margin-bottom: 15px;
+    font-weight: 700; /* Bolder */
 }
 
 .project-title a:hover {
@@ -1050,13 +1079,15 @@ body.reading-mode .highlight {
 
 .project-description {
     position: relative;
-    padding: 25px;
-    border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    padding: 0; /* Removed padding since the card itself now has padding */
     color: var(--light-slate);
-    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-    font-size: var(--fz-md);
-    z-index: 2
+    font-size: var(--fz-lg);
+    z-index: 2;
+    margin-bottom: 20px;
+    max-width: 100%;
+    line-height: 1.6;
+    background-color: transparent; /* Removed background color */
+    box-shadow: none; /* Removed box shadow */
 }
 
 .project-tech-list {
@@ -1064,17 +1095,21 @@ body.reading-mode .highlight {
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
-    margin: 25px 0 10px;
+    margin: 30px 0 20px;
     padding: 0;
-    list-style: none
+    list-style: none;
+    gap: 10px /* Increased gap between technology items */
 }
 
 .project-tech-list li {
     margin: 0 20px 5px 0;
     color: var(--light-slate);
     font-family: var(--font-mono);
-    font-size: var(--fz-xs);
-    white-space: nowrap
+    font-size: var(--fz-sm); /* Increased from xs to sm */
+    white-space: nowrap;
+    padding: 5px 10px; /* Added padding */
+    background-color: rgba(100, 255, 218, 0.07); /* Light background */
+    border-radius: 4px; /* Rounded corners */
 }
 
 .project-links {
@@ -1086,9 +1121,11 @@ body.reading-mode .highlight {
 }
 
 .project-links a {
-    padding: 10px;
+    padding: 12px;
+    margin-right: 10px;
     color: var(--lightest-slate);
-    transition: var(--transition)
+    transition: var(--transition);
+    font-size: var(--fz-xl); /* Larger icons */
 }
 
 .project-links a:hover {
@@ -1096,29 +1133,53 @@ body.reading-mode .highlight {
 }
 
 .project-image {
-    grid-column: 6 / -1;
-    grid-row: 1 / -1;
+    /* Removed grid-specific styling */
     position: relative;
     z-index: 1;
+    width: 100%;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
-    transition: var(--transition);
-    opacity: 0.85
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover .project-image {
-    opacity: 1
+    opacity: 1;
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px -15px rgba(2, 12, 27, 0.8)
 }
 
 .image-placeholder {
     background-color: var(--light-navy);
     width: 100%;
-    padding-bottom: 56.25%;
+    padding-bottom: 80%; /* Further increased height for even bigger images */
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-placeholder.with-image {
+    padding-bottom: 0;
+}
+
+/* Remove background for GIFs */
+.image-placeholder.with-image[data-image-type="animated"] {
+    background-color: transparent;
+}
+
+/* Special handling for inline animated GIFs */
+.project-image-inline .image-placeholder.with-image[data-image-type="animated"] {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.project-image-inline .image-placeholder .project-img.animated {
+    object-fit: contain;
+    background-color: transparent;
 }
 
 .image-placeholder i {
@@ -1127,7 +1188,60 @@ body.reading-mode .highlight {
     color: var(--slate);
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .image-placeholder i {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.image-placeholder .project-img {
+    width: 100%;
+    height: auto;
+   /* min-height: 440px; /* Significantly increased minimum height for images */
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-image-inline .image-placeholder .project-img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+  /*  min-height: 500px; /* Added minimum height for inline images */
+    object-fit: contain; /* Better for inline images */
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.05);
+}
+
+/* Support for animated GIFs - ensure they play smoothly */
+.image-placeholder .project-img.animated {
+    object-fit: contain; /* Prevent GIF distortion */
+  /*  min-height: 500px; /* Much taller for GIFs to make them more prominent */
+    background-color: transparent;
+    box-shadow: none;
+}
+
+/* Special styling for projects with animated GIFs */
+.project-card .animated-project {
+    transform: translateY(-5px); /* Lift it slightly */
+}
+
+.project-card:hover .animated-project {
+    transform: translateY(-8px); /* Enhanced lift on hover */
+}
+
+/* Remove border around GIF containers */
+.animated-project .image-placeholder {
+    border: none;
+    box-shadow: 0 15px 35px -15px rgba(2, 12, 27, 0.5);
 }
 
 .skills-container {
@@ -1189,33 +1303,55 @@ body.reading-mode .highlight {
 }
 
 @media (max-width:768px) {
-    .project-card {
-        grid-template-columns: 1fr
+    .project-card,
+    .project-card:nth-of-type(even),
+    .project-card:nth-of-type(odd) {
+        width: 95%; /* Wider on mobile */
+        padding: 20px; /* Less padding on mobile */
+        margin-bottom: 40px;
+        align-self: center; /* Center all cards on mobile */
+        border-left: none;
+        border-right: none;
+        border-top: 4px solid var(--cyan);
     }
 
-    .project-content,
-    .project-card:nth-of-type(even) .project-content {
-        grid-column: 1 / -1;
-        grid-row: 1;
-        text-align: left;
-        padding: 20px 0
+    /* Inline image already appears in the correct order on mobile */
+    .project-image-inline {
+        margin: 10px 0 15px 0;
+        max-height: 450px;
     }
 
-    .project-image,
-    .project-card:nth-of-type(even) .project-image {
-        grid-column: 1 / -1;
-        grid-row: 2
+
+    /* Ensure the placeholder looks good on mobile */
+    .image-placeholder {
+        padding-bottom: 80%;
     }
 
-    .project-tech-list,
-    .project-card:nth-of-type(even) .project-tech-list,
-    .project-links,
-    .project-card:nth-of-type(even) .project-links {
-        justify-content: flex-start
+    /* Remove background for GIFs on mobile too */
+    .image-placeholder.with-image[data-image-type="animated"] {
+        background-color: transparent;
+    }
+
+    .project-tech-list {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .project-tech-list li {
+        margin-bottom: 8px;
+    }
+
+    .project-links {
+        justify-content: flex-start;
     }
 
     .skills-container {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
+    }
+
+    /* Project section spacing */
+    .projects-grid {
+        gap: 40px;
     }
 }
 
@@ -1485,15 +1621,29 @@ html {
     .contact-text {
         font-size: var(--fz-md)
     }
+
+    /* Improved project styling for mobile */
+    .project-title {
+        font-size: clamp(24px, 5vw, 30px);
+    }
+
+    .project-description {
+        padding: 20px 25px;
+        font-size: var(--fz-md);
+    }
+
+    .projects-grid {
+        gap: 40px;
+    }
 }
 
 @media (max-width:480px) {
     .section {
-        padding: 50px 0
+        padding: 40px 0
     }
 
     .content {
-        padding: 0 20px
+        padding: 0 15px
     }
 
     .school-name {
@@ -1506,12 +1656,41 @@ html {
 
     /* Fix equal margins on mobile */
     .right-panel {
-        padding: 1rem 20px;
+        padding: 1rem 15px;
     }
 
     .content {
         padding: 0;
         margin: 0 auto;
+    }
+
+    /* Project card styling for very small screens */
+    .project-card,
+    .project-card:nth-of-type(even),
+    .project-card:nth-of-type(odd) {
+        width: 100%;
+        padding: 15px;
+        align-self: center;
+        border-left: none;
+        border-right: none;
+        border-top: 4px solid var(--cyan);
+    }
+
+    .project-tech-list li {
+        font-size: var(--fz-xs);
+        padding: 4px 8px;
+    }
+
+    .project-description {
+        font-size: var(--fz-md);
+    }
+
+    .project-title {
+        font-size: clamp(22px, 5vw, 28px);
+    }
+
+    .project-overline {
+        font-size: var(--fz-sm);
     }
 }
 
@@ -1692,7 +1871,7 @@ body.nav-open {
         left: auto;
     }
 
-    /* Hide profile photo in About section on mobile */
+    /* On mobile, profile photo is already shown in the mobile intro */
     #about .about-image {
         display: none;
     }

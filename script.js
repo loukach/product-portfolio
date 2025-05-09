@@ -136,8 +136,36 @@ function parseHighlightMarkdown(text) {
             n.href = e.ctaLink;
         }
     });
-}function populateAbout(e){const t=document.getElementById("about");t.querySelector(".section-title").style.display = "none"; // Hide the "About Me" title
-const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{const t=document.createElement("p");t.innerHTML=parseHighlightMarkdown(e),n.appendChild(t)});const a=document.createElement("ul");a.className="skills-list",e.skills.forEach(e=>{const t=document.createElement("li");t.innerHTML=parseHighlightMarkdown(e),a.appendChild(t)}),n.appendChild(a);const o=document.createElement("p");o.innerHTML=parseHighlightMarkdown(e.closing),n.appendChild(o)}function populateExperience(e) {
+}function populateAbout(e){
+    const t=document.getElementById("about");
+    t.querySelector(".section-title").style.display = "none"; // Hide the "About Me" title
+
+    const n=t.querySelector(".about-text");
+    n.innerHTML="";
+
+    // Add paragraphs
+    e.paragraphs.forEach(e=>{
+        const t=document.createElement("p");
+        t.innerHTML=parseHighlightMarkdown(e);
+        n.appendChild(t);
+    });
+
+    // Add skills list
+    const a=document.createElement("ul");
+    a.className="skills-list";
+    e.skills.forEach(e=>{
+        const t=document.createElement("li");
+        t.innerHTML=parseHighlightMarkdown(e);
+        a.appendChild(t);
+    });
+    n.appendChild(a);
+
+    // Add closing paragraph
+    const o=document.createElement("p");
+    o.innerHTML=parseHighlightMarkdown(e.closing);
+    // No float clearing needed with new layout
+    n.appendChild(o);
+}function populateExperience(e) {
     const t = document.getElementById("experience");
     t.querySelector(".section-title").innerHTML = `${e.title}`;
 
@@ -227,7 +255,127 @@ const n=t.querySelector(".about-text");n.innerHTML="",e.paragraphs.forEach(e=>{c
             card.classList.toggle("expanded");
         });
     });
-}function populateProjects(e){const t=document.getElementById("projects");t.querySelector(".section-title").innerHTML=`${e.title}`;const n=t.querySelector(".projects-grid");n.innerHTML="",e.items.forEach(e=>{const t=document.createElement("div");t.className="project-card";const a=document.createElement("div");a.className="project-content";const o=document.createElement("div");o.className="project-overline",o.textContent="Featured Project",a.appendChild(o);const c=document.createElement("h3");c.className="project-title",c.textContent=e.title,a.appendChild(c);const i=document.createElement("div");i.className="project-description";const r=document.createElement("p");r.innerHTML=parseHighlightMarkdown(e.description),i.appendChild(r),a.appendChild(i);const l=document.createElement("ul");l.className="project-tech-list",e.technologies.forEach(e=>{const t=document.createElement("li");t.textContent=e,l.appendChild(t)}),a.appendChild(l);const s=document.createElement("div");s.className="project-links",e.links.forEach(e=>{const t=document.createElement("a");t.href=e.url,t.setAttribute("aria-label",e.label);const n=document.createElement("i");n.className=e.icon,t.appendChild(n),s.appendChild(t)}),a.appendChild(s),t.appendChild(a);const d=document.createElement("div");d.className="project-image";const m=document.createElement("div");m.className="image-placeholder";const p=document.createElement("i");p.className=e.image.placeholder,m.appendChild(p),d.appendChild(m),t.appendChild(d),n.appendChild(t)})}function populateSkills(e){const t=document.getElementById("skills");t.querySelector(".section-title").innerHTML=`${e.title}`;const n=t.querySelector(".skills-container");n.innerHTML="",e.categories.forEach(e=>{const t=document.createElement("div");t.className="skills-category";const a=document.createElement("h3");a.className="category-title",a.textContent=e.name,t.appendChild(a);const o=document.createElement("ul");o.className="skills-category-list",e.items.forEach(e=>{const t=document.createElement("li");t.innerHTML=parseHighlightMarkdown(e),o.appendChild(t)}),t.appendChild(o),n.appendChild(t)})}function populateEducation(e){const t=document.getElementById("education");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".education-list");n.innerHTML="",e.schools.forEach(e=>{const t=document.createElement("div");t.className="education-item";const a=document.createElement("h3");a.className="school-name",a.textContent=e.name,t.appendChild(a);const o=document.createElement("div");o.className="degree",o.textContent=e.degree,t.appendChild(o);const c=document.createElement("div");c.className="education-year-location",c.textContent=`${e.period}, ${e.location}`,t.appendChild(c),n.appendChild(t)})}function populateContact(e){const t=document.getElementById("contact");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".contact-content"),a=n.querySelectorAll(".contact-text");a.forEach(e=>e.remove()),e.paragraphs.forEach(e=>{const t=document.createElement("p");t.className="contact-text",t.innerHTML=parseHighlightMarkdown(e),n.insertBefore(t,n.querySelector(".contact-button"))});const o=n.querySelector(".contact-button");o.textContent=e.ctaText;const c=[e.email.user,e.email.domain],i=c[0]+"@"+c[1];o.setAttribute("href","mailto:"+i)}function populateFooter(e){const t=document.querySelector("footer");t.innerHTML="";const n=document.createElement("p"),a=document.createElement("a");a.href=e.designCredit.url,a.target="_blank",a.rel="noopener noreferrer",a.textContent=e.designCredit.name,n.textContent=e.designCredit.text+" ",n.appendChild(a),t.appendChild(n);const o=document.createElement("p"),c=document.createElement("a");c.href=e.toolCredit.url,c.target="_blank",c.rel="noopener noreferrer",c.textContent=e.toolCredit.name,o.textContent=e.toolCredit.text+" ",o.appendChild(c),t.appendChild(o);const i=document.createElement("p");i.className="copyright",i.textContent=e.copyright,t.appendChild(i)}
+}function populateProjects(e) {
+    const projectsSection = document.getElementById("projects");
+    projectsSection.querySelector(".section-title").innerHTML = `${e.title}`;
+    const projectsGrid = projectsSection.querySelector(".projects-grid");
+    projectsGrid.innerHTML = "";
+    
+    e.items.forEach(project => {
+        // Create project card
+        const card = document.createElement("div");
+        card.className = "project-card";
+        
+        // Create project content container
+        const contentContainer = document.createElement("div");
+        contentContainer.className = "project-content";
+        
+        // Step 1: Add project header (overline + title)
+        const overline = document.createElement("div");
+        overline.className = "project-overline";
+        overline.textContent = "Featured Project";
+        contentContainer.appendChild(overline);
+        
+        const title = document.createElement("h3");
+        title.className = "project-title";
+        title.textContent = project.title;
+        contentContainer.appendChild(title);
+        
+        // Step 2: Add project image (between title and description)
+        const imageContainer = document.createElement("div");
+        imageContainer.className = "project-image project-image-inline";
+        const imagePlaceholder = document.createElement("div");
+        imagePlaceholder.className = "image-placeholder";
+        
+        if(project.image.src) {
+            const img = document.createElement("img");
+            img.src = project.image.src;
+            img.alt = project.title;
+            
+            // Add appropriate classes based on image type
+            const isAnimated = project.image.src.toLowerCase().endsWith('.gif');
+            img.className = isAnimated ? "project-img animated" : "project-img";
+            
+            // Add loading attribute for better performance
+            img.loading = "lazy";
+            
+            // Add accessibility attributes
+            img.setAttribute('title', project.title);
+            img.setAttribute('aria-label', `Project image for ${project.title}`);
+            
+            // Add image to DOM
+            imagePlaceholder.appendChild(img);
+            imagePlaceholder.classList.add("with-image");
+            
+            // Add data attribute to track image type
+            imagePlaceholder.dataset.imageType = isAnimated ? "animated" : "static";
+            
+            // Add special class for animated GIFs
+            if(isAnimated) {
+                imageContainer.classList.add("animated-project");
+            }
+        } else {
+            // Fallback to icon placeholder
+            const icon = document.createElement("i");
+            icon.className = project.image.placeholder;
+            imagePlaceholder.appendChild(icon);
+        }
+        
+        imageContainer.appendChild(imagePlaceholder);
+        contentContainer.appendChild(imageContainer); // Add image right after title
+        
+        // Step 3: Add project description
+        const descriptionContainer = document.createElement("div");
+        descriptionContainer.className = "project-description";
+        const description = document.createElement("p");
+        description.innerHTML = parseHighlightMarkdown(project.description);
+        descriptionContainer.appendChild(description);
+        contentContainer.appendChild(descriptionContainer);
+        
+        // Step 4: Add technologies list
+        const techList = document.createElement("ul");
+        techList.className = "project-tech-list";
+        project.technologies.forEach(tech => {
+            const techItem = document.createElement("li");
+            techItem.textContent = tech;
+            techList.appendChild(techItem);
+        });
+        contentContainer.appendChild(techList);
+        
+        // Step 5: Add links (only if not empty)
+        const linksContainer = document.createElement("div");
+        linksContainer.className = "project-links";
+        let hasLinks = false;
+        
+        project.links.forEach(link => {
+            // Skip empty URLs or placeholders
+            if(link.url && link.url !== "" && link.url !== "#") {
+                const linkElement = document.createElement("a");
+                linkElement.href = link.url;
+                linkElement.setAttribute("aria-label", link.label);
+                linkElement.setAttribute("target", "_blank");
+                linkElement.setAttribute("rel", "noopener noreferrer");
+                
+                const linkIcon = document.createElement("i");
+                linkIcon.className = link.icon;
+                linkElement.appendChild(linkIcon);
+                linksContainer.appendChild(linkElement);
+                hasLinks = true;
+            }
+        });
+        
+        // Only add links container if there are actual links
+        if(hasLinks) {
+            contentContainer.appendChild(linksContainer);
+        }
+        
+        // Add content container to card
+        card.appendChild(contentContainer);
+        
+        // Add card to projects grid
+        projectsGrid.appendChild(card);
+    });
+}function populateSkills(e){const t=document.getElementById("skills");t.querySelector(".section-title").innerHTML=`${e.title}`;const n=t.querySelector(".skills-container");n.innerHTML="",e.categories.forEach(e=>{const t=document.createElement("div");t.className="skills-category";const a=document.createElement("h3");a.className="category-title",a.textContent=e.name,t.appendChild(a);const o=document.createElement("ul");o.className="skills-category-list",e.items.forEach(e=>{const t=document.createElement("li");t.innerHTML=parseHighlightMarkdown(e),o.appendChild(t)}),t.appendChild(o),n.appendChild(t)})}function populateEducation(e){const t=document.getElementById("education");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".education-list");n.innerHTML="",e.schools.forEach(e=>{const t=document.createElement("div");t.className="education-item";const a=document.createElement("h3");a.className="school-name",a.textContent=e.name,t.appendChild(a);const o=document.createElement("div");o.className="degree",o.textContent=e.degree,t.appendChild(o);const c=document.createElement("div");c.className="education-year-location",c.textContent=`${e.period}, ${e.location}`,t.appendChild(c),n.appendChild(t)})}function populateContact(e){const t=document.getElementById("contact");t.querySelector(".section-title").innerHTML=`<span>${e.number}.</span> ${e.title}`;const n=t.querySelector(".contact-content"),a=n.querySelectorAll(".contact-text");a.forEach(e=>e.remove()),e.paragraphs.forEach(e=>{const t=document.createElement("p");t.className="contact-text",t.innerHTML=parseHighlightMarkdown(e),n.insertBefore(t,n.querySelector(".contact-button"))});const o=n.querySelector(".contact-button");o.textContent=e.ctaText;const c=[e.email.user,e.email.domain],i=c[0]+"@"+c[1];o.setAttribute("href","mailto:"+i)}function populateFooter(e){const t=document.querySelector("footer");t.innerHTML="";const n=document.createElement("p"),a=document.createElement("a");a.href=e.designCredit.url,a.target="_blank",a.rel="noopener noreferrer",a.textContent=e.designCredit.name,n.textContent=e.designCredit.text+" ",n.appendChild(a),t.appendChild(n);const o=document.createElement("p"),c=document.createElement("a");c.href=e.toolCredit.url,c.target="_blank",c.rel="noopener noreferrer",c.textContent=e.toolCredit.name,o.textContent=e.toolCredit.text+" ",o.appendChild(c),t.appendChild(o);const i=document.createElement("p");i.className="copyright",i.textContent=e.copyright,t.appendChild(i)}
 
 // Populate testimonials section
 function populateTestimonials(e) {
@@ -561,7 +709,7 @@ function loadUserPreferences() {
         }
     } else {
         // Default to your preferred palette if no saved preferences
-        applyPalette("creative"); // Available options: warm, neofuture, terminal, creative, original
+        applyPalette("neofuture"); // Available options: warm, neofuture, terminal, creative, original
     }
 }
 

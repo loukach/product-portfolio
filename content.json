@@ -55,7 +55,7 @@
         "company": "Motork.io",
         "number": "01",
         "title": "Senior Product Manager",
-        "url": "https://motork.io",
+        "url": "https://www.motork.io/stockspark-car-stock-management-system/",
         "period": "September 2022 - Present",
         "description": [
           "Managed roadmap for 2 teams responsible for ==70% of product revenue==",
@@ -70,7 +70,7 @@
         "company": "Joy From Giving",
         "number": "02",
         "title": "Co-founder, Head of Product & Tech",
-        "url": "#",
+        "url": "https://joyfromgiving.org/",
         "period": "December 2024 - Present",
         "type": "Volunteering",
         "description": [
@@ -97,7 +97,7 @@
         "company": "ShiftLeft.PT",
         "number": "04",
         "title": "Product Manager | Project Manager",
-        "url": "#",
+        "url": "https://shiftleft.pt/",
         "period": "October 2017 - July 2019",
         "description": [
           "Defined and implemented ==secure development policies== and standards",
@@ -111,7 +111,7 @@
         "company": "Trenspott S.A.",
         "number": "05",
         "title": "Product Lead & Head of Business Development",
-        "url": "#",
+        "url": "https://www.crunchbase.com/organization/trenspott-s-a",
         "period": "October 2016 - December 2018",
         "description": [
           "Drove ==AI-based fashion trend prediction== system with data scientists and fashion experts",
@@ -156,31 +156,40 @@
         "featured": true,
         "title": "AI Background Removal",
         "description": "Developed ==automated background removal== solution for 400+ automotive dealers across Europe. This ==AI implementation== reduced processing time from 30 minutes to ==5 minutes per vehicle==, enabling dealers to list inventory faster and improve visual presentation without specialized skills.",
-        "technologies": ["AI image processing", "mobile application integration"],
+        "technologies": ["3rd party integrations", "API", "mobile application integration"],
         "links": [
           { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
         ],
-        "image": { "placeholder": "fas fa-image" }
+        "image": {
+          "placeholder": "fas fa-image",
+          "src": "project-images/background-removal.jpg"
+        }
       },
       {
         "featured": true,
         "title": "Conversational Agent for Volunteering",
         "description": "Created an ==AI assistant== that helps volunteers find opportunities matching their interests and availability. The ==conversational interface== makes the matching process more engaging and ==personalized== compared to traditional search interfaces.",
-        "technologies": ["LangChain", "Claude", "Gemini", "WordPress"],
+        "technologies": ["Claude Code", "Gemini API", "WordPress"],
         "links": [
-          { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
+          { "url": "https://joyfromgiving.org/find-an-activity/#joy-ai-chat-id", "icon": "fas fa-external-link-alt", "label": "View project" }
         ],
-        "image": { "placeholder": "fas fa-robot" }
+        "image": {
+          "placeholder": "fas fa-robot",
+          "src": "project-images/volunteer-agent.jpg"
+        }
       },
       {
         "featured": true,
         "title": "Next-Gen UX for Stock Management",
-        "description": "Built ==proof-of-concept== for a conversational interface to manage automotive inventory, teaching ==AI agents== to handle stock management through natural language. This transformed a complex, form-heavy process into an ==intuitive conversation==.",
-        "technologies": ["Claude Code", "n8n", "Zapier"],
+        "description": "Built ==proof-of-concept== for a conversational interface to manage automotive inventory, using ==AI agents== to handle stock management through natural language. This transformed a complex, form-heavy process into an ==intuitive conversation==. Included the ability to generate videos from 1-2 images within seconds using Runway API",
+        "technologies": ["Claude Code", "n8n", "RunwayML", "Lovable"],
         "links": [
           { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
         ],
-        "image": { "placeholder": "fas fa-comments" }
+        "image": {
+          "placeholder": "fas fa-comments",
+          "src": "project-images/stock-management.gif"
+        }
       }
     ]
   },
@@ -298,9 +307,10 @@
       {
         "name": "AI & Technical",
         "items": [
-          "Large Language Models (LLM)",
-          "Automation (Zapier, n8n, Lindy)",
-          "APIs (Postman, Runway, Back-end)",
+          "Large Language Models (LLM) & RAG",
+          "Workflow Automation with AI Agents (Zapier, n8n, Lindy)",
+          "Integration via APIs",
+          "Design & deployment of APIs",
           "Vibe/Assisted Coding (Claude Code, Lovable)"
         ]
       },

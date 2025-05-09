@@ -18,7 +18,7 @@ This is a responsive, single-page portfolio website with a dark theme inspired b
 - Fixed side navigation that highlights the current section
 - Animated hero section with staggered fade-ins
 - Foldable cards for the experience section with expand/collapse functionality
-- Project showcase with alternating layout
+- Project showcase with alternating layout, image support, and animated GIF capabilities
 - Skills section organized by categories
 - Education timeline
 - Contact section with email protection
@@ -35,6 +35,7 @@ The project uses a simple file structure:
 ├── script.js          # JavaScript with content loader
 ├── content.json       # All portfolio content in JSON format
 ├── favicon.svg        # Site icon
+├── project-images/    # Directory for project images
 ├── README.md          # This file
 └── CLAUDE.md          # Guidance for Claude AI
 ```
@@ -98,6 +99,40 @@ Example of updating your job experience:
   }
 ]
 ```
+
+Example of adding images to your projects:
+```json
+"projects": {
+  "items": [
+    {
+      "title": "Project Title",
+      "description": "Project description with ==highlighted text==",
+      "technologies": ["Tech 1", "Tech 2"],
+      "links": [
+        { "url": "https://project-url.com", "icon": "fas fa-external-link-alt", "label": "View project" }
+      ],
+      "image": {
+        "placeholder": "fas fa-image",
+        "src": "project-images/your-image.jpg"
+      }
+    },
+    {
+      "title": "Animated Project",
+      "description": "Project with animated GIF demonstration",
+      "technologies": ["Tech 1", "Tech 2"],
+      "links": [
+        { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
+      ],
+      "image": {
+        "placeholder": "fas fa-robot",
+        "src": "project-images/animated-demo.gif"
+      }
+    }
+  ]
+}
+```
+
+**Note**: The site automatically detects GIF files and applies special styling for animated images. GIFs provide a more engaging way to demonstrate interactive projects or show processes in action.
 
 ## Deployment
 

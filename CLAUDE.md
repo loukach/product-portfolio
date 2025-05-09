@@ -114,6 +114,38 @@ For structure changes:
 - Keep event handlers properly scoped
 - Use the established animation patterns
 
+## Project Images
+
+To add images to projects:
+
+1. Place project images in the `project-images/` directory
+2. In `content.json`, update each project's image configuration to include an `src` property:
+   ```json
+   "image": {
+     "placeholder": "fas fa-image",
+     "src": "project-images/your-image-filename.jpg"
+   }
+   ```
+3. If an image is not available, the system will automatically use the icon specified in the "placeholder" property
+
+Image recommendations:
+- Use 16:9 aspect ratio (e.g., 1280x720px) for consistent display
+- Optimize images for web (reduce file size while maintaining quality)
+- Use .jpg, .png, or .gif formats (animated GIFs are supported!)
+- For animated GIFs, keep file size under 1MB to prevent performance issues
+- Consider using static images for mobile optimization
+
+Enhanced features:
+- Animated GIFs are automatically detected and given special styling treatment
+- Images scale up slightly on hover for a more engaging experience
+- Minimum height is enforced for visual consistency
+- Mobile versions are optimized with adjusted dimensions
+
+Project image naming convention:
+- background-removal.jpg - For the AI Background Removal project
+- volunteer-agent.gif - For the Conversational Agent project (using GIF for animation)
+- stock-management.jpg - For the Next-Gen UX project
+
 ## Deployment
 
 The site is ready to deploy as-is to any static hosting service:

@@ -728,6 +728,11 @@ body.reading-mode .reading-mode-toggle i {
     transition: var(--transition)
 }
 
+/* Override padding-bottom for mobile profile photo */
+.mobile-profile-photo .profile-img-container {
+    padding-bottom: 0;
+}
+
 .profile-img-container .profile-photo {
     position: absolute;
     top: 0;
@@ -1476,7 +1481,7 @@ html {
 
     /* Fix equal margins on mobile */
     .right-panel {
-        padding: 5rem 20px;
+        padding: 1rem 20px;
     }
 
     .content {
@@ -1620,20 +1625,20 @@ body.nav-open {
     .right-panel::before {
         content: "";
         display: block;
-        height: 80px;
+        height: 20px;
     }
 
     /* Create a duplicate of profile-intro for mobile */
     .right-panel .content::before {
         content: "";
         display: block;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 
     /* Show mobile intro in smaller screens */
     .mobile-intro {
         display: block;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     .mobile-intro .profile-intro {
@@ -1645,6 +1650,21 @@ body.nav-open {
     .mobile-profile-photo {
         display: block;
         margin: 30px auto;
+        max-width: 250px;
+        aspect-ratio: 1/1;
+    }
+
+    .mobile-profile-photo .profile-img-container {
+        height: 250px;
+    }
+
+    .mobile-profile-photo .profile-img-container .profile-photo {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        top: auto;
+        left: auto;
     }
 
     /* Hide profile photo in About section on mobile */

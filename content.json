@@ -18,7 +18,7 @@
     ],
     "social": [
       { "name": "LinkedIn", "url": "https://www.linkedin.com/in/lucasgros", "icon": "fab fa-linkedin-in" },
-      { "name": "GitHub", "url": "https://github.com/loukach", "icon": "fab fa-github" },
+      { "name": "GitHub", "url": "https://github.com/loukach/product-portfolio", "icon": "fab fa-github" },
       { "name": "Email", "url": "lucas.gros@gmail.com", "icon": "fas fa-envelope" }
     ]
   },

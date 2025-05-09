@@ -6,11 +6,11 @@
     --palette-original-dark-text: #ccd6f6;
     --palette-original-dark-text-secondary: #8892b0;
 
-    --palette-original-light-bg: #f5f5f7;
+    --palette-original-light-bg: #f0f5fa;
     --palette-original-light-card: #ffffff;
-    --palette-original-light-accent: #007bff;
-    --palette-original-light-text: #1d1d1f;
-    --palette-original-light-text-secondary: #424245;
+    --palette-original-light-accent: #0366d6;
+    --palette-original-light-text: #0a192f;
+    --palette-original-light-text-secondary: #2d3748;
 
     /* Neo-Futuristic Palette */
     --palette-neofuture-dark-bg: #0E0F1A;
@@ -20,12 +20,12 @@
     --palette-neofuture-dark-text: #E5E7EB;
     --palette-neofuture-dark-text-secondary: #9CA3AF;
 
-    --palette-neofuture-light-bg: #F9FAFB;
+    --palette-neofuture-light-bg: #EEF2F5;
     --palette-neofuture-light-card: #FFFFFF;
-    --palette-neofuture-light-accent: #00FFFF;
-    --palette-neofuture-light-accent-secondary: #A259FF;
-    --palette-neofuture-light-text: #111827;
-    --palette-neofuture-light-text-secondary: #4B5563;
+    --palette-neofuture-light-accent: #0094FF;
+    --palette-neofuture-light-accent-secondary: #7F3DFF;
+    --palette-neofuture-light-text: #0E0F1A;
+    --palette-neofuture-light-text-secondary: #2D3B55;
 
     /* Warm Minimal Tech Palette */
     --palette-warm-dark-bg: #1F1E1C;
@@ -35,12 +35,12 @@
     --palette-warm-dark-text: #F1F1F1;
     --palette-warm-dark-text-secondary: #B1B1B1;
 
-    --palette-warm-light-bg: #FDFBF9;
+    --palette-warm-light-bg: #F8F4F0;
     --palette-warm-light-card: #FFFFFF;
-    --palette-warm-light-accent: #FF6B6B;
-    --palette-warm-light-accent-secondary: #0E918C;
-    --palette-warm-light-text: #1A1A1A;
-    --palette-warm-light-text-secondary: #6A6A6A;
+    --palette-warm-light-accent: #E74C3C;
+    --palette-warm-light-accent-secondary: #0A7772;
+    --palette-warm-light-text: #1F1E1C;
+    --palette-warm-light-text-secondary: #463F38;
 
     /* Midnight Terminal Palette */
     --palette-terminal-dark-bg: #0B0C10;
@@ -50,12 +50,12 @@
     --palette-terminal-dark-text: #E0E0E0;
     --palette-terminal-dark-text-secondary: #999999;
 
-    --palette-terminal-light-bg: #F5F7FA;
+    --palette-terminal-light-bg: #EDF2F7;
     --palette-terminal-light-card: #FFFFFF;
-    --palette-terminal-light-accent: #00FF88;
-    --palette-terminal-light-accent-secondary: #00BFFF;
-    --palette-terminal-light-text: #1E1E1E;
-    --palette-terminal-light-text-secondary: #6E6E6E;
+    --palette-terminal-light-accent: #00B159;
+    --palette-terminal-light-accent-secondary: #0078D7;
+    --palette-terminal-light-text: #0B0C10;
+    --palette-terminal-light-text-secondary: #2C3E50;
 
     /* Creative Builder Palette */
     --palette-creative-dark-bg: #1A1A2E;
@@ -65,12 +65,12 @@
     --palette-creative-dark-text: #EDEDED;
     --palette-creative-dark-text-secondary: #A7A7A7;
 
-    --palette-creative-light-bg: #FEFEFC;
+    --palette-creative-light-bg: #F5F5FA;
     --palette-creative-light-card: #FFFFFF;
-    --palette-creative-light-accent: #FFC400;
-    --palette-creative-light-accent-secondary: #2D3E50;
-    --palette-creative-light-text: #242424;
-    --palette-creative-light-text-secondary: #6B6B6B;
+    --palette-creative-light-accent: #E6AC00;
+    --palette-creative-light-accent-secondary: #1A4A74;
+    --palette-creative-light-text: #1A1A2E;
+    --palette-creative-light-text-secondary: #3D3D56;
     
     /* Active Palette (defaults to original) */
     --navy: var(--palette-original-dark-bg);
@@ -253,8 +253,8 @@ body.reading-mode {
     background-color: rgba(100, 255, 218, 0.1);
 }
 
-body.reading-mode .reading-mode-toggle i {
-    transform: rotate(180deg);
+body.reading-mode .reading-mode-toggle i:before {
+    content: "\f185"; /* fa-sun icon code */
 }
 
 /* Palette Selector Styles */

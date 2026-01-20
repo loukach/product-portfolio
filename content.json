@@ -170,6 +170,20 @@
     "items": [
       {
         "featured": true,
+        "title": "Parla! - Parliamentary Transparency Platform",
+        "description": "Built a ==civic tech platform== that makes Portuguese democracy accessible to citizens. Features interactive visualization of ==6,800+ legislative initiatives==, full-text search, parliamentary agenda, vote tracking, and committee analysis. Designed to bridge the gap between citizens and their representatives.",
+        "technologies": ["React", "TypeScript", "Flask", "PostgreSQL", "Tailwind CSS"],
+        "links": [
+          { "url": "https://viriato-frontend.onrender.com/", "icon": "fas fa-external-link-alt", "label": "View project" },
+          { "url": "https://github.com/loukach/viriato", "icon": "fab fa-github", "label": "GitHub" }
+        ],
+        "image": {
+          "placeholder": "fas fa-landmark",
+          "src": "project-images/parla-homepage.png"
+        }
+      },
+      {
+        "featured": true,
         "title": "AI Background Removal",
         "description": "Developed ==automated background removal== solution for 400+ automotive dealers across Europe. This ==AI implementation== reduced processing time from 30 minutes to ==5 minutes per vehicle==, enabling dealers to list inventory faster and improve visual presentation without specialized skills.",
         "technologies": ["3rd party integrations", "API", "mobile application integration"],

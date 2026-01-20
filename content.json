@@ -51,9 +51,25 @@
     "number": "02",
     "jobs": [
       {
+        "id": "parla",
+        "company": "Parla!",
+        "number": "01",
+        "title": "Founder & Product Engineer",
+        "url": "https://viriato-frontend.onrender.com/",
+        "period": "January 2025 - Present",
+        "type": "Civic Tech",
+        "description": [
+          "Built ==parliamentary transparency platform== to make Portuguese democracy accessible to citizens",
+          "Designed and deployed full-stack solution: ==React + TypeScript== frontend, Flask API, PostgreSQL database",
+          "Created interactive visualization of ==6,800+ legislative initiatives== with advanced filtering and full-text search",
+          "Developed ==automated data pipeline== processing 17 datasets from parlamento.pt with weekly updates",
+          "Shipped ==14 production views== including hemicycle visualization, agenda calendar, and committee tracking"
+        ]
+      },
+      {
         "id": "motork",
         "company": "Motork.io",
-        "number": "01",
+        "number": "02",
         "title": "Senior Product Manager",
         "url": "https://www.motork.io/stockspark-car-stock-management-system/",
         "period": "September 2022 - Present",
@@ -68,7 +84,7 @@
       {
         "id": "joy",
         "company": "Joy From Giving",
-        "number": "02",
+        "number": "03",
         "title": "Co-founder, Head of Product & Tech",
         "url": "https://joyfromgiving.org/",
         "period": "December 2024 - Present",
@@ -82,7 +98,7 @@
       {
         "id": "feedzai",
         "company": "Feedzai",
-        "number": "03",
+        "number": "04",
         "title": "Product Manager",
         "url": "https://feedzai.com",
         "period": "July 2019 - August 2022",
@@ -95,7 +111,7 @@
       {
         "id": "shiftleft",
         "company": "ShiftLeft.PT",
-        "number": "04",
+        "number": "05",
         "title": "Product Manager | Project Manager",
         "url": "https://shiftleft.pt/",
         "period": "October 2017 - July 2019",
@@ -109,7 +125,7 @@
       {
         "id": "trenspott",
         "company": "Trenspott S.A.",
-        "number": "05",
+        "number": "06",
         "title": "Product Lead & Head of Business Development",
         "url": "https://www.crunchbase.com/organization/trenspott-s-a",
         "period": "October 2016 - December 2018",
@@ -122,7 +138,7 @@
       {
         "id": "petit",
         "company": "Petit Patapon",
-        "number": "06",
+        "number": "07",
         "title": "Head of Product Management",
         "url": "#",
         "period": "June 2011 - December 2012",
@@ -136,7 +152,7 @@
       {
         "id": "consulting",
         "company": "Eurogroup Consulting & Solucom",
-        "number": "07",
+        "number": "08",
         "title": "Management Consultant",
         "url": "#",
         "period": "January 2009 - September 2016 (Fractional)",

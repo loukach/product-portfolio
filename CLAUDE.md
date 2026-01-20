@@ -121,34 +121,65 @@ For structure changes:
 To add images to projects:
 
 1. Place project images in the `project-images/` directory
-2. In `content.json`, update each project's image configuration to include an `src` property:
-   ```json
-   "image": {
-     "placeholder": "fas fa-image",
-     "src": "project-images/your-image-filename.jpg"
-   }
-   ```
-3. If an image is not available, the system will automatically use the icon specified in the "placeholder" property
+2. In `content.json`, update each project's image configuration
 
-Image recommendations:
+### Single Image (standard)
+```json
+"image": {
+  "placeholder": "fas fa-image",
+  "src": "project-images/your-image-filename.jpg"
+}
+```
+
+### Multiple Images (mobile screenshots)
+For mobile app projects or when showcasing multiple views, use the `sources` array:
+```json
+"image": {
+  "placeholder": "fas fa-mobile-alt",
+  "sources": [
+    "project-images/app-screen-1.png",
+    "project-images/app-screen-2.png",
+    "project-images/app-screen-3.png"
+  ]
+}
+```
+
+Multiple images are displayed side-by-side on desktop and stack responsively on mobile. This is ideal for:
+- Mobile app screenshots showing different screens/features
+- Before/after comparisons
+- Multi-step process demonstrations
+
+3. If no image is available, the system will automatically use the icon specified in the "placeholder" property
+
+### Image Recommendations
+
+**Single images:**
 - Use 16:9 aspect ratio (e.g., 1280x720px) for consistent display
 - Optimize images for web (reduce file size while maintaining quality)
 - Use .jpg, .png, or .gif formats (animated GIFs are supported!)
 - For animated GIFs, keep file size under 1MB to prevent performance issues
-- Consider using static images for mobile optimization
 
-Enhanced features:
+**Mobile screenshots (multiple images):**
+- Use consistent dimensions across all screenshots in a set
+- Portrait orientation works best (mobile phone aspect ratio)
+- Recommended: 390x844px or similar iPhone dimensions
+- Keep each image under 500KB for good performance
+- 3 images is the recommended maximum for side-by-side display
+
+### Enhanced Features
 - Project cards alternate between left and right alignment with accent-colored borders
 - Animated GIFs are automatically detected and given special styling treatment
 - Images scale up slightly on hover for a more engaging experience
 - Large, prominent project images with minimum heights of 500px for better visibility
 - Mobile versions are optimized with centered cards and adjusted dimensions
 - Technology tags feature subtle backgrounds for improved readability
+- Multiple mobile screenshots display in a responsive gallery layout
 
-Project image naming convention:
-- background-removal.jpg - For the AI Background Removal project
-- volunteer-agent.gif - For the Conversational Agent project (using GIF for animation)
-- stock-management.jpg - For the Next-Gen UX project
+### Project Image Naming Convention
+- `background-removal.jpg` - For the AI Background Removal project
+- `volunteer-agent.gif` - For the Conversational Agent project (using GIF for animation)
+- `stock-management.gif` - For the Next-Gen UX project (animated demo)
+- `parla-mobile-*.png` - For Parla! project mobile screenshots (votes, topics, participate)
 
 ## Deployment
 

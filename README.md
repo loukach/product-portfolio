@@ -127,12 +127,31 @@ Example of adding images to your projects:
         "placeholder": "fas fa-robot",
         "src": "project-images/animated-demo.gif"
       }
+    },
+    {
+      "title": "Mobile App Project",
+      "description": "Project showcasing multiple mobile screens",
+      "technologies": ["React Native", "TypeScript"],
+      "links": [
+        { "url": "#", "icon": "fas fa-external-link-alt", "label": "View project" }
+      ],
+      "image": {
+        "placeholder": "fas fa-mobile-alt",
+        "sources": [
+          "project-images/app-screen-1.png",
+          "project-images/app-screen-2.png",
+          "project-images/app-screen-3.png"
+        ]
+      }
     }
   ]
 }
 ```
 
-**Note**: The site automatically detects GIF files and applies special styling for animated images. GIFs provide a more engaging way to demonstrate interactive projects or show processes in action.
+**Image options:**
+- **Single image**: Use `"src": "path/to/image.jpg"` for standard project screenshots
+- **Animated GIF**: Use `.gif` extension - automatically detected and styled appropriately
+- **Multiple images**: Use `"sources": [...]` array for mobile screenshots displayed side-by-side
 
 ## Deployment
 

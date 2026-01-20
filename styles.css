@@ -1244,6 +1244,63 @@ body.reading-mode .highlight {
     box-shadow: 0 15px 35px -15px rgba(2, 12, 27, 0.5);
 }
 
+/* Mobile screenshots layout (3 phones side by side) */
+.mobile-screenshots {
+    background: transparent;
+    border: none;
+}
+
+.screenshots-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.mobile-screenshot {
+    width: auto;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    transition: var(--transition);
+}
+
+.mobile-screenshot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px -10px rgba(2, 12, 27, 0.8);
+}
+
+@media (max-width: 768px) {
+    .screenshots-wrapper {
+        gap: 10px;
+        padding: 15px 0;
+    }
+
+    .mobile-screenshot {
+        height: 280px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .screenshots-wrapper {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .mobile-screenshot {
+        height: 320px;
+        width: 45%;
+        object-fit: cover;
+    }
+
+    .mobile-screenshot:last-child {
+        width: 60%;
+    }
+}
+
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

@@ -179,7 +179,11 @@
         ],
         "image": {
           "placeholder": "fas fa-landmark",
-          "src": "project-images/parla-homepage.png"
+          "sources": [
+            "project-images/parla-mobile-votes.png",
+            "project-images/parla-mobile-topics.png",
+            "project-images/parla-mobile-participate.png"
+          ]
         }
       },
       {

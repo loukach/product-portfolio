@@ -281,47 +281,70 @@ function parseHighlightMarkdown(text) {
         title.textContent = project.title;
         contentContainer.appendChild(title);
         
-        // Step 2: Add project image (between title and description)
+        // Step 2: Add project image(s) (between title and description)
         const imageContainer = document.createElement("div");
         imageContainer.className = "project-image project-image-inline";
-        const imagePlaceholder = document.createElement("div");
-        imagePlaceholder.className = "image-placeholder";
-        
-        if(project.image.src) {
-            const img = document.createElement("img");
-            img.src = project.image.src;
-            img.alt = project.title;
-            
-            // Add appropriate classes based on image type
-            const isAnimated = project.image.src.toLowerCase().endsWith('.gif');
-            img.className = isAnimated ? "project-img animated" : "project-img";
-            
-            // Add loading attribute for better performance
-            img.loading = "lazy";
-            
-            // Add accessibility attributes
-            img.setAttribute('title', project.title);
-            img.setAttribute('aria-label', `Project image for ${project.title}`);
-            
-            // Add image to DOM
-            imagePlaceholder.appendChild(img);
-            imagePlaceholder.classList.add("with-image");
-            
-            // Add data attribute to track image type
-            imagePlaceholder.dataset.imageType = isAnimated ? "animated" : "static";
-            
-            // Add special class for animated GIFs
-            if(isAnimated) {
-                imageContainer.classList.add("animated-project");
-            }
+
+        // Support for multiple images (mobile screenshots)
+        if(project.image.sources && project.image.sources.length > 1) {
+            imageContainer.classList.add("mobile-screenshots");
+            const screenshotsWrapper = document.createElement("div");
+            screenshotsWrapper.className = "screenshots-wrapper";
+
+            project.image.sources.forEach((src, index) => {
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = `${project.title} - Screenshot ${index + 1}`;
+                img.className = "project-img mobile-screenshot";
+                img.loading = "lazy";
+                screenshotsWrapper.appendChild(img);
+            });
+
+            imageContainer.appendChild(screenshotsWrapper);
         } else {
-            // Fallback to icon placeholder
-            const icon = document.createElement("i");
-            icon.className = project.image.placeholder;
-            imagePlaceholder.appendChild(icon);
+            // Single image (original behavior)
+            const imagePlaceholder = document.createElement("div");
+            imagePlaceholder.className = "image-placeholder";
+
+            const imageSrc = project.image.sources ? project.image.sources[0] : project.image.src;
+
+            if(imageSrc) {
+                const img = document.createElement("img");
+                img.src = imageSrc;
+                img.alt = project.title;
+
+                // Add appropriate classes based on image type
+                const isAnimated = imageSrc.toLowerCase().endsWith('.gif');
+                img.className = isAnimated ? "project-img animated" : "project-img";
+
+                // Add loading attribute for better performance
+                img.loading = "lazy";
+
+                // Add accessibility attributes
+                img.setAttribute('title', project.title);
+                img.setAttribute('aria-label', `Project image for ${project.title}`);
+
+                // Add image to DOM
+                imagePlaceholder.appendChild(img);
+                imagePlaceholder.classList.add("with-image");
+
+                // Add data attribute to track image type
+                imagePlaceholder.dataset.imageType = isAnimated ? "animated" : "static";
+
+                // Add special class for animated GIFs
+                if(isAnimated) {
+                    imageContainer.classList.add("animated-project");
+                }
+            } else {
+                // Fallback to icon placeholder
+                const icon = document.createElement("i");
+                icon.className = project.image.placeholder;
+                imagePlaceholder.appendChild(icon);
+            }
+
+            imageContainer.appendChild(imagePlaceholder);
         }
-        
-        imageContainer.appendChild(imagePlaceholder);
+
         contentContainer.appendChild(imageContainer); // Add image right after title
         
         // Step 3: Add project description
